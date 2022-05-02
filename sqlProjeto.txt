@@ -1,0 +1,109 @@
+use projeto;
+
+DROP TABLE IF EXISTS `administrador`;
+
+CREATE TABLE `administrador` (
+  `Id` int auto_increment NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Senha` varchar(100) NOT NULL,
+  UNIQUE KEY `administrador_un` (`Id`)
+);
+
+DROP TABLE IF EXISTS `instituicao`;
+
+CREATE TABLE `instituicao` (
+  `Id` int auto_increment NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Endereco` varchar(100) NOT NULL,
+  `Senha` varchar(100) NOT NULL,
+  UNIQUE KEY `instituicao_un` (`Id`)
+);
+
+DROP TABLE IF EXISTS `adotante`;
+
+CREATE TABLE `adotante` (
+  `Id` int auto_increment NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Senha` varchar(100) NOT NULL,
+  `Cpf` varchar(100) NOT NULL,
+  UNIQUE KEY `adotante_un` (`Id`)
+);
+
+DROP TABLE IF EXISTS `cachorro`;
+
+CREATE TABLE `cachorro` (
+  `Id` int auto_increment NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Raca` varchar(50) NOT NULL,
+  `Ano_Nacimento` date NOT NULL,
+  `Porte` varchar(30) NOT NULL,
+  `Id_Instituicao` int NOT NULL,
+  `Imagem` binary(1) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  CONSTRAINT `cachorro_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
+);
+
+DROP TABLE IF EXISTS `email_instituicao`;
+
+CREATE TABLE `email_instituicao` (
+  `Id` int auto_increment NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Id_Instituicao` int NOT NULL,
+  PRIMARY KEY (`Id`),
+  CONSTRAINT `email_instituicao_FK` FOREIGN KEY (`Id`) REFERENCES `instituicao` (`Id`)
+);
+
+DROP TABLE IF EXISTS `endereco`;
+
+CREATE TABLE `endereco` (
+  `Id_Adotante` int auto_increment NOT NULL,
+  `Bairro` varchar(100) NOT NULL,
+  `Estado` varchar(100) NOT NULL,
+  `Logradouro` varchar(100) NOT NULL,
+  `Numero` int NOT NULL,
+  `Complemento` varchar(100) NOT NULL,
+  `Id_Instituicao` int NOT NULL,
+  `Id` int NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `endereco_Adotante_FK` (`Id_Adotante`),
+  KEY `endereco_Instituicao_FK` (`Id_Instituicao`),
+  CONSTRAINT `endereco_Adotante_FK` FOREIGN KEY (`Id_Adotante`) REFERENCES `adotante` (`Id`),
+  CONSTRAINT `endereco_Instituicao_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
+);
+
+DROP TABLE IF EXISTS `funcionario`;
+
+CREATE TABLE `funcionario` (
+  `Id` int auto_increment NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  `Email` varchar(70) NOT NULL,
+  `Senha` varchar(100) NOT NULL,
+  `Id_Instituicao` int NOT NULL,
+  PRIMARY KEY (`Id`),
+  CONSTRAINT `funcionario_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
+);
+
+DROP TABLE IF EXISTS `reserva`;
+
+CREATE TABLE `reserva` (
+  `id_reserva` int auto_increment NOT NULL,
+  `id_adotante` int NOT NULL,
+  `id_cachorro` int NOT NULL,
+  PRIMARY KEY (`id_reserva`),
+  KEY `reserva_adotante_FK` (`id_adotante`),
+  CONSTRAINT `reserva_adotante_FK` FOREIGN KEY (`id_adotante`) REFERENCES `adotante` (`Id`),
+  CONSTRAINT reserva_cachorro_FK FOREIGN KEY (id_cachorro) REFERENCES projeto.cachorro(Id)
+);
+
+DROP TABLE IF EXISTS `telefone_instituicao`;
+
+CREATE TABLE `telefone_instituicao` (
+  `Id_Instituicao` int NOT NULL,
+  `Telefone` varchar(50) NOT NULL,
+  `Id` int auto_increment NOT NULL,
+  PRIMARY KEY (`Id`),
+  CONSTRAINT telefone_instituicao_FK_copy FOREIGN KEY (Id_Instituicao) REFERENCES projeto.instituicao(Id)
+);
+
