@@ -8,7 +8,7 @@ global $database;
 $servername = "localhost:3306";
 $username = "MATHEUS";
 $password = "1234567";
-$database = "bancodedadoshelpfriend";
+$database = "helpfriendbanco";
 ?>
 
 

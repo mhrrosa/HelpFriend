@@ -9,9 +9,9 @@
                 $cpf = $_POST['cpf'];
                 $cargo = $_POST['cargo'];
 				$id_instituicao = $_POST['id'];
-				$id_funcionario = $_POST['idf'];
 
-                $sql = "INSERT INTO funcionario(Id,Nome, Email, Senha,Id_Instituicao) VALUES ('$id_funcionario','$nome','$email', '$senha','$id_instituicao')";
+
+                $sql = "INSERT INTO funcionario(Nome, Email, Senha,Id_Instituicao,cargo,cpf) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf')";
 
                 // Cria conexão
 				$conn = mysqli_connect($servername, $username, $password, $database);
