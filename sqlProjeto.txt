@@ -15,7 +15,6 @@ DROP TABLE IF EXISTS `instituicao`;
 CREATE TABLE `instituicao` (
   `Id` int auto_increment NOT NULL,
   `Nome` varchar(100) NOT NULL,
-  `Endereco` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
   UNIQUE KEY `instituicao_un` (`Id`)
 );
