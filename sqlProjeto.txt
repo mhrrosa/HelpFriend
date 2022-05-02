@@ -22,7 +22,6 @@ DROP TABLE IF EXISTS `telefone_instituicao`;
 
 CREATE TABLE `telefone_instituicao` (
   `Id` int NOT NULL AUTO_INCREMENT,
-  `Id_Instituicao` int NOT NULL,
   `Telefone` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
 );
