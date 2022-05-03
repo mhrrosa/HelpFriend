@@ -15,8 +15,8 @@
                 margin-bottom: 150px
             }
         </style>
-        <link rel="stylesheet" type="text/css" href="./CSS/cadastrof.css">
-        <title>Cadastro Cachorro</title>
+        <link rel="stylesheet" type="text/css" href="CSS/cadastrof.css">
+        <title>Help Friend</title>
 
 </head>
 <header class="cadastro-funcionario">
@@ -41,7 +41,7 @@
     <?php require 'conectaBD.php'; ?>
 
     <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
-    <div class="w3-main w3-container" style="">
+    <div class="w3-main w3-container">
 
         <div class="w3-panel w3-padding-large w3-card-4 w3-light-dark">
             <h1 class="w3-xxlarge"style="margin-left:43%">Cachorros</h1>
@@ -107,7 +107,7 @@
                             
                             <a href='profAtualizar.php?id=<?php echo $cod; ?>'><img src='IMG/editar.png' title='Editar Professor' width='32'></a>
                             </td><td>
-                            <a href='profExcluir.php?id=<?php echo $cod; ?>'><img src='IMG/excluir.png' title='Excluir Professor' width='32'></a>
+                            <a href='deletarCachorro.php?id=<?php echo $cod; ?>'><img src='IMG/excluir.png' title='Excluir Professor' width='32'></a>
                             </td>
                             </tr>
                 <?php

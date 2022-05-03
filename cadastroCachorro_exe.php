@@ -9,7 +9,7 @@
                 $raca = $_POST['raca'];
                 $id_instituicao = $_POST['id_instituicao'];
 
-                $sql = "INSERT INTO cachorro(Nome, Ano_Nacimento, Porte,Raca,Id_Instituicao) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao')";
+                $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte,Raca,Id_Instituicao) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao')";
 
                 // Cria conexão
 				$conn = mysqli_connect($servername, $username, $password, $database);

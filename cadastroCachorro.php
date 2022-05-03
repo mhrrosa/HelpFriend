@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./CSS/cadastroc.css">
-    <title>Cadastro Cachorro</title>
+    <title>Help Friend</title>
 
 </head>
 
@@ -41,7 +41,7 @@
                     <label for="name"> Nome 
                         <input type="text" name="nome">
                     </label>
-                    <label for="date"> Ano 
+                    <label for="date"> Ano de Nascimento
                         <input type="date" name="ano">
                     </label>
                     <label for="name"> Porte 

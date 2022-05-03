@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="./CSS/cadastrof.css">
-        <title>Cadastro funcionário</title>
+        <title>Help Friend</title>
 
     </head>
     <body> 
@@ -32,8 +32,8 @@
                         <label for="name"> Nome 
                             <input type="text" name="nome">
                         </label>
-                        <label for="email"> Email 
-                            <input type="email" name="email">
+                        <label for="email"> Id email 
+                            <input type="text" name="email">
                         </label>
 
                         <label for="password"> Senha 

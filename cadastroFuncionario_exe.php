@@ -11,7 +11,7 @@
 				$id_instituicao = $_POST['id'];
 
 
-                $sql = "INSERT INTO funcionario(Nome, Email, Senha,Id_Instituicao,cargo,cpf) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf')";
+                $sql = "INSERT INTO funcionario(Nome, Id_email, Senha,Id_Instituicao,cargo,cpf) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf')";
 
                 // Cria conexão
 				$conn = mysqli_connect($servername, $username, $password, $database);

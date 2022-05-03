@@ -16,7 +16,7 @@
         }
     </style>
     <link rel="stylesheet" type="text/css" href="./CSS/cadastrof.css">
-    <title>Cadastro Funcionario</title>
+    <title>Help Friend</title>
 </head>
 
 <header class="cadastro-funcionario">
@@ -40,10 +40,10 @@
     <?php require 'conectaBD.php'; ?>
 
     <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
-    <div class="w3-main w3-container" style="">
+    <div class="w3-main w3-container">
 
         <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-            <h1 class="w3-xxlarge" style="margin-left:40%">Funcionarios</h1>
+            <h1 class="w3-xxlarge" style="margin-left:40%">Funcionários</h1>
 
             <p class="w3-large">
             <p>
@@ -66,7 +66,7 @@
         mysqli_query($conn,'SET character_set_client=utf8');
         mysqli_query($conn,'SET character_set_results=utf8');
 
-                    $sql = "SELECT id, Nome, email,cpf,cargo FROM funcionario";
+                    $sql = "SELECT id, Nome, Id_email,cpf,cargo FROM funcionario";
                     echo "<div class='w3-responsive w3-card-4'>";
                     if ($result = mysqli_query($conn, $sql)) {
                         echo "<table class='w3-table-all'>";
@@ -88,7 +88,7 @@
                                 echo "</td><td>";
                                 echo $row["Nome"];
                                 echo "</td><td>";
-                                echo $row["email"];
+                                echo $row["Id_email"];
                                 echo "</td><td>";
                                 echo $row["cpf"];
                                 echo "</td><td>";
@@ -100,7 +100,7 @@
                             
                             <a href='profAtualizar.php?id=<?php echo $cod; ?>'><img src='IMG/editar.png' title='Editar Professor' width='32'></a>
                             </td><td>
-                            <a href='profExcluir.php?id=<?php echo $cod; ?>'><img src='IMG/excluir.png' title='Excluir Professor' width='32'></a>
+                            <a href='deletarFuncionario.php?id=<?php echo $cod; ?>'><img src='IMG/excluir.png' title='Excluir Professor' width='32'></a>
                             </td>
                             </tr>
                 <?php
