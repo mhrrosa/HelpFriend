@@ -82,11 +82,11 @@
                                 $cpf  = $row['cpf'];
                                 $cargo  = $row['cargo'];
                                 $id_instituicao  = $row['Id_Instituicao'];
-                                $id_email = $row['id_email']
+                                $id_email = $row['id_email'];
 						}
                     }
                 ?>
-                  <form id="cadastro" action="cadastroFuncionario_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
+                  <form id="cadastro" action="atualizaFuncionario_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
                   <input type="hidden" id="Id" name="Id" value="<?php echo $id; ?>">  
                   <div class="form">
                         <label for="text"> Cadastro de Funcionário</label>
@@ -110,7 +110,7 @@
                         </label>
 
                         <label for="name"> id instituicao 
-                            <input type="text" name="id" value="<?php echo $id_instituicao; ?>">
+                            <input type="text" name="id_instituicao" value="<?php echo $id_instituicao; ?>">
                         </label>
 
                         <label for="submit"> 

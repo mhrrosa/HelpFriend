@@ -1,369 +1,121 @@
--- phpMyAdmin SQL Dump
--- version 4.9.5
--- https://www.phpmyadmin.net/
---
--- Host: localhost:3307
--- Generation Time: May 04, 2022 at 02:07 PM
--- Server version: 5.7.24
--- PHP Version: 7.4.1
+DROP TABLE IF EXISTS `email`;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+CREATE TABLE `email` (
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `Email` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+);
 
+DROP TABLE IF EXISTS `endereco`;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+CREATE TABLE `endereco` (
+  `Id` int NOT NULL,
+  `Bairro` varchar(100) NOT NULL,
+  `Estado` varchar(100) NOT NULL,
+  `Logradouro` varchar(100) NOT NULL,
+  `Numero` int NOT NULL,
+  `Complemento` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+);
 
---
--- Database: `helpfriendbanco`
---
+DROP TABLE IF EXISTS `telefone_instituicao`;
 
--- --------------------------------------------------------
+CREATE TABLE `telefone_instituicao` (
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `Telefone` varchar(50) NOT NULL,
+  PRIMARY KEY (`Id`)
+);
 
---
--- Table structure for table `administrador`
---
+DROP TABLE IF EXISTS `administrador`;
 
 CREATE TABLE `administrador` (
-  `Id` int(11) NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
-  `id_email` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_email` int NOT NULL,
+  UNIQUE KEY `administrador_un` (`Id`),
+  KEY `administrador_FK` (`id_email`),
+  CONSTRAINT `administrador_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`)
+);
 
---
--- Dumping data for table `administrador`
---
+DROP TABLE IF EXISTS `instituicao`;
 
-INSERT INTO `administrador` (`Id`, `Nome`, `Senha`, `id_email`) VALUES
-(1, 'Arthur ADM', 'ADM SENHA', 1);
+CREATE TABLE `instituicao` (
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(100) NOT NULL,
+  `Senha` varchar(100) NOT NULL,
+  `id_administrador` int NOT NULL,
+  `id_endereco` int NOT NULL,
+  `id_email` int NOT NULL,
+  `id_telefone` int NOT NULL,
+  UNIQUE KEY `instituicao_un` (`Id`),
+  KEY `instituicao_FK` (`id_administrador`),
+  KEY `instituicao_endereco_FK` (`id_endereco`),
+  KEY `instituicao_email_FK` (`id_email`),
+  KEY `instituicao_telefone_FK` (`id_telefone`),
+  CONSTRAINT `instituicao_email_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`),
+  CONSTRAINT `instituicao_endereco_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`),
+  CONSTRAINT `instituicao_FK` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`Id`),
+  CONSTRAINT `instituicao_telefone_FK` FOREIGN KEY (`id_telefone`) REFERENCES `telefone_instituicao` (`Id`)
+);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `adotante`
---
+DROP TABLE IF EXISTS `adotante`;
 
 CREATE TABLE `adotante` (
-  `Id` int(11) NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
   `Cpf` varchar(100) NOT NULL,
-  `id_endereco` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_endereco` int NOT NULL,
+  UNIQUE KEY `adotante_un` (`Id`),
+  KEY `adotante_email_FK` (`id_endereco`),
+  CONSTRAINT `adotante_email_FK` FOREIGN KEY (`id_endereco`) REFERENCES `email` (`Id`),
+  CONSTRAINT `adotante_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`)
+);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `cachorro`
---
+DROP TABLE IF EXISTS `cachorro`;
 
 CREATE TABLE `cachorro` (
-  `Id` int(11) NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Raca` varchar(50) NOT NULL,
   `Ano_Nascimento` date NOT NULL,
   `Porte` varchar(30) NOT NULL,
-  `Id_Instituicao` int(11) NOT NULL,
-  `Imagem` binary(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Id_Instituicao` int NOT NULL,
+  `Imagem` binary(1) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `cachorro_FK` (`Id_Instituicao`),
+  CONSTRAINT `cachorro_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
+);
 
---
--- Dumping data for table `cachorro`
---
-
-INSERT INTO `cachorro` (`Id`, `Nome`, `Raca`, `Ano_Nascimento`, `Porte`, `Id_Instituicao`, `Imagem`) VALUES
-(5, 'JOÃO CACHORRÃO', 'Buldogue frances', '2022-05-17', 'Médio', 1, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `email`
---
-
-CREATE TABLE `email` (
-  `Id` int(11) NOT NULL,
-  `Email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `email`
---
-
-INSERT INTO `email` (`Id`, `Email`) VALUES
-(1, 'teste@gmail.com');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `endereco`
---
-
-CREATE TABLE `endereco` (
-  `Id` int(11) NOT NULL,
-  `Bairro` varchar(100) NOT NULL,
-  `Estado` varchar(100) NOT NULL,
-  `Logradouro` varchar(100) NOT NULL,
-  `Numero` int(11) NOT NULL,
-  `Complemento` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `endereco`
---
-
-INSERT INTO `endereco` (`Id`, `Bairro`, `Estado`, `Logradouro`, `Numero`, `Complemento`) VALUES
-(1, 'asdf', 'asdf', 'adsf', 12, 'asdf'),
-(2, 'asdf', 'asdf', 'adsf', 12, 'asdf');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `funcionario`
---
+DROP TABLE IF EXISTS `funcionario`;
 
 CREATE TABLE `funcionario` (
-  `Id` int(11) NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
-  `Id_Instituicao` int(11) NOT NULL,
-  `cpf` int(11) NOT NULL,
+  `Id_Instituicao` int NOT NULL,
+  `cpf` int NOT NULL,
   `cargo` varchar(100) NOT NULL,
-  `id_email` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_email` int NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `funcionario_FK` (`Id_Instituicao`),
+  KEY `funcionario_email_FK` (`id_email`),
+  CONSTRAINT `funcionario_email_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`),
+  CONSTRAINT `funcionario_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
+);
 
---
--- Dumping data for table `funcionario`
---
-
-INSERT INTO `funcionario` (`Id`, `Nome`, `Senha`, `Id_Instituicao`, `cpf`, `cargo`, `id_email`) VALUES
-(1, 'algum funcionario', 'asdfasdf', 1, 714524794, 'gerente', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `instituicao`
---
-
-CREATE TABLE `instituicao` (
-  `Id` int(11) NOT NULL,
-  `Nome` varchar(100) NOT NULL,
-  `Senha` varchar(100) NOT NULL,
-  `id_administrador` int(11) NOT NULL,
-  `id_endereco` int(11) NOT NULL,
-  `id_email` int(11) NOT NULL,
-  `id_telefone` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `instituicao`
---
-
-INSERT INTO `instituicao` (`Id`, `Nome`, `Senha`, `id_administrador`, `id_endereco`, `id_email`, `id_telefone`) VALUES
-(1, 'teste', 'asdf', 1, 2, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reserva`
---
+DROP TABLE IF EXISTS `reserva`;
 
 CREATE TABLE `reserva` (
-  `id_reserva` int(11) NOT NULL,
-  `id_adotante` int(11) NOT NULL,
-  `id_cachorro` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_reserva` int NOT NULL AUTO_INCREMENT,
+  `id_adotante` int NOT NULL,
+  `id_cachorro` int NOT NULL,
+  PRIMARY KEY (`id_reserva`),
+  KEY `reserva_adotante_FK` (`id_adotante`),
+  KEY `reserva_cachorro_FK` (`id_cachorro`),
+  CONSTRAINT `reserva_adotante_FK` FOREIGN KEY (`id_adotante`) REFERENCES `adotante` (`Id`),
+  CONSTRAINT `reserva_cachorro_FK` FOREIGN KEY (`id_cachorro`) REFERENCES `cachorro` (`Id`)
+);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `telefone_instituicao`
---
-
-CREATE TABLE `telefone_instituicao` (
-  `Id` int(11) NOT NULL,
-  `Telefone` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `telefone_instituicao`
---
-
-INSERT INTO `telefone_instituicao` (`Id`, `Telefone`) VALUES
-(1, '1232134');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `administrador`
---
-ALTER TABLE `administrador`
-  ADD UNIQUE KEY `administrador_un` (`Id`),
-  ADD KEY `administrador_FK` (`id_email`);
-
---
--- Indexes for table `adotante`
---
-ALTER TABLE `adotante`
-  ADD UNIQUE KEY `adotante_un` (`Id`),
-  ADD KEY `adotante_email_FK` (`id_endereco`);
-
---
--- Indexes for table `cachorro`
---
-ALTER TABLE `cachorro`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `cachorro_FK` (`Id_Instituicao`);
-
---
--- Indexes for table `email`
---
-ALTER TABLE `email`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `endereco`
---
-ALTER TABLE `endereco`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `funcionario_FK` (`Id_Instituicao`),
-  ADD KEY `funcionario_email_FK` (`id_email`);
-
---
--- Indexes for table `instituicao`
---
-ALTER TABLE `instituicao`
-  ADD UNIQUE KEY `instituicao_un` (`Id`),
-  ADD KEY `instituicao_FK` (`id_administrador`),
-  ADD KEY `instituicao_endereco_FK` (`id_endereco`),
-  ADD KEY `instituicao_email_FK` (`id_email`),
-  ADD KEY `instituicao_telefone_FK` (`id_telefone`);
-
---
--- Indexes for table `reserva`
---
-ALTER TABLE `reserva`
-  ADD PRIMARY KEY (`id_reserva`),
-  ADD KEY `reserva_adotante_FK` (`id_adotante`),
-  ADD KEY `reserva_cachorro_FK` (`id_cachorro`);
-
---
--- Indexes for table `telefone_instituicao`
---
-ALTER TABLE `telefone_instituicao`
-  ADD PRIMARY KEY (`Id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `administrador`
---
-ALTER TABLE `administrador`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `adotante`
---
-ALTER TABLE `adotante`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `cachorro`
---
-ALTER TABLE `cachorro`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `email`
---
-ALTER TABLE `email`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `funcionario`
---
-ALTER TABLE `funcionario`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `instituicao`
---
-ALTER TABLE `instituicao`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `reserva`
---
-ALTER TABLE `reserva`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `telefone_instituicao`
---
-ALTER TABLE `telefone_instituicao`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `administrador`
---
-ALTER TABLE `administrador`
-  ADD CONSTRAINT `administrador_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`);
-
---
--- Constraints for table `adotante`
---
-ALTER TABLE `adotante`
-  ADD CONSTRAINT `adotante_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`),
-  ADD CONSTRAINT `adotante_email_FK` FOREIGN KEY (`id_endereco`) REFERENCES `email` (`Id`);
-
---
--- Constraints for table `cachorro`
---
-ALTER TABLE `cachorro`
-  ADD CONSTRAINT `cachorro_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`);
-
---
--- Constraints for table `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD CONSTRAINT `funcionario_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`),
-  ADD CONSTRAINT `funcionario_email_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`);
-
---
--- Constraints for table `instituicao`
---
-ALTER TABLE `instituicao`
-  ADD CONSTRAINT `instituicao_FK` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`Id`),
-  ADD CONSTRAINT `instituicao_email_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`),
-  ADD CONSTRAINT `instituicao_endereco_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`),
-  ADD CONSTRAINT `instituicao_telefone_FK` FOREIGN KEY (`id_telefone`) REFERENCES `telefone_instituicao` (`Id`);
-
---
--- Constraints for table `reserva`
---
-ALTER TABLE `reserva`
-  ADD CONSTRAINT `reserva_adotante_FK` FOREIGN KEY (`id_adotante`) REFERENCES `adotante` (`Id`),
-  ADD CONSTRAINT `reserva_cachorro_FK` FOREIGN KEY (`id_cachorro`) REFERENCES `cachorro` (`Id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

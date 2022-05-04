@@ -9,7 +9,7 @@
             $senha = $_POST['senha'];
             $cpf = $_POST['cpf'];
             $cargo = $_POST['cargo'];
-            $id_email = $_POST['id_email'];
+            $id_email = $_POST['email'];
             $id_instituicao = $_POST['id_instituicao'];
 
             $conn = mysqli_connect($servername, $username, $password, $database);
