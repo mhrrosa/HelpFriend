@@ -89,7 +89,7 @@
                   <form id="cadastro" action="atualizaFuncionario_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
                   <input type="hidden" id="Id" name="Id" value="<?php echo $id; ?>">  
                   <div class="form">
-                        <label for="text"> Cadastro de Funcionário</label>
+                        <label for="text"> Atualização de Funcionário</label>
                         <label for="name"> Nome 
                             <input type="text" name="nome" value="<?php echo $nome; ?>">
                         </label>
