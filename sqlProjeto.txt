@@ -1,121 +1,84 @@
-DROP TABLE IF EXISTS `email`;
+-- phpMyAdmin SQL Dump
+-- version 4.9.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3307
+-- Generation Time: May 04, 2022 at 02:04 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.1
 
-CREATE TABLE `email` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `Email` varchar(100) NOT NULL,
-  PRIMARY KEY (`Id`)
-);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-DROP TABLE IF EXISTS `endereco`;
 
-CREATE TABLE `endereco` (
-  `Id` int NOT NULL,
-  `Bairro` varchar(100) NOT NULL,
-  `Estado` varchar(100) NOT NULL,
-  `Logradouro` varchar(100) NOT NULL,
-  `Numero` int NOT NULL,
-  `Complemento` varchar(100) NOT NULL,
-  PRIMARY KEY (`Id`)
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-DROP TABLE IF EXISTS `telefone_instituicao`;
+--
+-- Database: `helpfriendbanco`
+--
 
-CREATE TABLE `telefone_instituicao` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `Telefone` varchar(50) NOT NULL,
-  PRIMARY KEY (`Id`)
-);
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `administrador`;
-
-CREATE TABLE `administrador` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `Nome` varchar(100) NOT NULL,
-  `Senha` varchar(100) NOT NULL,
-  `id_email` int NOT NULL,
-  UNIQUE KEY `administrador_un` (`Id`),
-  KEY `administrador_FK` (`id_email`),
-  CONSTRAINT `administrador_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`)
-);
-
-DROP TABLE IF EXISTS `instituicao`;
-
-CREATE TABLE `instituicao` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `Nome` varchar(100) NOT NULL,
-  `Senha` varchar(100) NOT NULL,
-  `id_administrador` int NOT NULL,
-  `id_endereco` int NOT NULL,
-  `id_email` int NOT NULL,
-  `id_telefone` int NOT NULL,
-  UNIQUE KEY `instituicao_un` (`Id`),
-  KEY `instituicao_FK` (`id_administrador`),
-  KEY `instituicao_endereco_FK` (`id_endereco`),
-  KEY `instituicao_email_FK` (`id_email`),
-  KEY `instituicao_telefone_FK` (`id_telefone`),
-  CONSTRAINT `instituicao_email_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`),
-  CONSTRAINT `instituicao_endereco_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`),
-  CONSTRAINT `instituicao_FK` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`Id`),
-  CONSTRAINT `instituicao_telefone_FK` FOREIGN KEY (`id_telefone`) REFERENCES `telefone_instituicao` (`Id`)
-);
-
-DROP TABLE IF EXISTS `adotante`;
-
-CREATE TABLE `adotante` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `Nome` varchar(100) NOT NULL,
-  `Senha` varchar(100) NOT NULL,
-  `Cpf` varchar(100) NOT NULL,
-  `id_endereco` int NOT NULL,
-  UNIQUE KEY `adotante_un` (`Id`),
-  KEY `adotante_email_FK` (`id_endereco`),
-  CONSTRAINT `adotante_email_FK` FOREIGN KEY (`id_endereco`) REFERENCES `email` (`Id`),
-  CONSTRAINT `adotante_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`)
-);
-
-DROP TABLE IF EXISTS `cachorro`;
-
-CREATE TABLE `cachorro` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `Nome` varchar(100) NOT NULL,
-  `Raca` varchar(50) NOT NULL,
-  `Ano_Nascimento` date NOT NULL,
-  `Porte` varchar(30) NOT NULL,
-  `Id_Instituicao` int NOT NULL,
-  `Imagem` binary(1) DEFAULT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `cachorro_FK` (`Id_Instituicao`),
-  CONSTRAINT `cachorro_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
-);
-
-DROP TABLE IF EXISTS `funcionario`;
+--
+-- Table structure for table `funcionario`
+--
 
 CREATE TABLE `funcionario` (
-  `Id` int NOT NULL AUTO_INCREMENT,
+  `Id` int(11) NOT NULL,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
-  `Id_Instituicao` int NOT NULL,
-  `cpf` varchar(100) NOT NULL,
+  `Id_Instituicao` int(11) NOT NULL,
+  `cpf` int(11) NOT NULL,
   `cargo` varchar(100) NOT NULL,
-  `id_email` int NOT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `funcionario_FK` (`Id_Instituicao`),
-  KEY `funcionario_email_FK` (`id_email`),
-  CONSTRAINT `funcionario_email_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`),
-  CONSTRAINT `funcionario_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
-);
+  `id_email` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `reserva`;
+--
+-- Dumping data for table `funcionario`
+--
 
-CREATE TABLE `reserva` (
-  `id_reserva` int NOT NULL AUTO_INCREMENT,
-  `id_adotante` int NOT NULL,
-  `id_cachorro` int NOT NULL,
-  PRIMARY KEY (`id_reserva`),
-  KEY `reserva_adotante_FK` (`id_adotante`),
-  KEY `reserva_cachorro_FK` (`id_cachorro`),
-  CONSTRAINT `reserva_adotante_FK` FOREIGN KEY (`id_adotante`) REFERENCES `adotante` (`Id`),
-  CONSTRAINT `reserva_cachorro_FK` FOREIGN KEY (`id_cachorro`) REFERENCES `cachorro` (`Id`)
-);
+INSERT INTO `funcionario` (`Id`, `Nome`, `Senha`, `Id_Instituicao`, `cpf`, `cargo`, `id_email`) VALUES
+(1, 'algum funcionario', 'asdfasdf', 1, 714524794, 'gerente', 1);
 
+--
+-- Indexes for dumped tables
+--
 
+--
+-- Indexes for table `funcionario`
+--
+ALTER TABLE `funcionario`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `funcionario_FK` (`Id_Instituicao`),
+  ADD KEY `funcionario_email_FK` (`id_email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `funcionario`
+--
+ALTER TABLE `funcionario`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `funcionario`
+--
+ALTER TABLE `funcionario`
+  ADD CONSTRAINT `funcionario_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`),
+  ADD CONSTRAINT `funcionario_email_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
