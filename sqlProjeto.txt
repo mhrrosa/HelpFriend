@@ -95,7 +95,7 @@ CREATE TABLE `funcionario` (
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
   `Id_Instituicao` int NOT NULL,
-  `cpf` int NOT NULL,
+  `cpf` varchar(100) NOT NULL,
   `cargo` varchar(100) NOT NULL,
   `id_email` int NOT NULL,
   PRIMARY KEY (`Id`),
