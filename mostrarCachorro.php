@@ -105,9 +105,9 @@
                                 //Atualizar e Excluir registro de prof
                 ?>
                             
-                            <a href='profAtualizar.php?id=<?php echo $cod; ?>'><img src='IMG/editar.png' title='Editar Professor' width='32'></a>
+                            <a href='atualizacachorro.php?id=<?php echo $cod; ?>'><img src='IMG/editar.png' title='Editar Cachorro' width='32'></a>
                             </td><td>
-                            <a href='deletarCachorro.php?id=<?php echo $cod; ?>'><img src='IMG/excluir.png' title='Excluir Professor' width='32'></a>
+                            <a href='deletarCachorro.php?id=<?php echo $cod; ?>'><img src='IMG/excluir.png' title='Excluir Cachorro' width='32'></a>
                             </td>
                             </tr>
                 <?php
