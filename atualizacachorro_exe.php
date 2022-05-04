@@ -30,6 +30,7 @@
 
             if ($result = mysqli_query($conn, $sql)) {
                 echo "Um registro atualizado!";
+                echo $id;
             } else {
                 
                 echo "Erro executando a atualização: " . mysqli_error($conn);

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="./CSS/cadastroc.css">
     <title>Help Friend</title>
 
@@ -35,7 +36,7 @@
     </header>
     <header>
         <div class="formcadastro">
-            <form id="cadastro" action="cadastroCachorro_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">>
+            <form id="cadastro" action="cadastroCachorro_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
                 <div class="form">
                     <label for="text"> Cadastro de Cachorro</label>
                     <label for="name"> Nome 
@@ -46,7 +47,7 @@
                     </label>
                     <label for="name"> Porte 
                         <select name="porte" name="porte">
-                            <option value="Selecione o porte desejado:"></option>
+                            <option value="">Selecione o porte desejado:</option>
                             <option value="Pequeno">Pequeno</option>
                             <option value="Médio">Medio</option>
                             <option value="Grande">Grande</option>
@@ -54,7 +55,7 @@
                     </label>
                     <label for="name"> Raca
                         <select name="raca">
-                            <option value="Selecione a raca desejada:"></option>
+                            <option value="">Selecione a raca desejada:</option>
                             <option value="Shih Tzu">Shih Tzu</option>
                             <option value="Yorkshire">Yorkshire</option>
                             <option value="Buldogue frances">Buldogue frances</option>

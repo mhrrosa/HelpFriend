@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+    
 <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="./CSS/cadastroc.css">
     <title>Atualizar Cachorro</title>
 
@@ -100,16 +101,18 @@
                                 pattern="((0[1-9])|([1-2][0-9])|(3[0-1]))\/((0[1-9])|(1[0-2]))\/((19|20)[0-9][0-9])"
                                 title="Formato: dd/mm/aaaa." value="<?php echo $Ano_Nascimento; ?>">
                             </label>
-                            <label for="name"> Porte <span> <?php echo $porte; ?></span>
+                            <label for="name"> Porte <span> </span>
                                 <select name="porte">
+                                    <option value= "<?php echo $porte; ?>">Porte Atual - <?php echo $porte; ?></option>
                                     <option value="Selecione o porte desejado:"<?php echo $porte=='Selecione'?'selected':'';?> >Selecione</option>
                                     <option value="Pequeno"<?php echo $porte=='Selecione'?'selected':'';?> >Pequeno</option>
                                     <option value="Médio"<?php echo $porte=='Selecione'?'selected':'';?> >Medio</option>
                                     <option value="Grande"<?php echo $porte=='Selecione'?'selected':'';?> >Grande</option>
                                 </select>
                             </label>
-                            <label for="name"> Raca <span> <?php echo $raca; ?></span>
+                            <label for="name"> Raca <span></span>
                                 <select name="raca">
+                                    <option value= " <?php echo $raca; ?>">Raça Atual - <?php echo $raca; ?></option>
                                     <option value="Selecione a raca desejada:"<?php echo $raca=='Selecione'?'selected':'';?> >Selecione</option>
                                     <option value="Shih Tzu"<?php echo $raca=='Selecione'?'selected':'';?> >Shih Tzu</option>
                                     <option value="Yorkshire"<?php echo $raca=='Selecione'?'selected':'';?> >Yorkshire</option>
