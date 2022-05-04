@@ -98,9 +98,9 @@
                                 //Atualizar e Excluir registro de prof
                 ?>
                             
-                            <a href='atualizaFuncionario.php?id=<?php echo $cod; ?>'><img src='IMG/editar.png' title='Editar Funcionario' width='32'></a>
+                            <a href='atualizaFuncionario.php?id=<?php echo $row["id"]; ?>'><img src='IMG/editar.png' title='Editar Funcionario' width='32'></a>
                             </td><td>
-                            <a href='deletarFuncionario.php?id=<?php echo $cod; ?>'><img src='IMG/excluir.png' title='Excluir Funcionario' width='32'></a>
+                            <a href='deletarFuncionario.php?id=<?php echo $row["id"]; ?>'><img src='IMG/excluir.png' title='Excluir Funcionario' width='32'></a>
                             </td>
                             </tr>
                 <?php

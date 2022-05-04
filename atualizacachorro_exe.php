@@ -4,7 +4,7 @@
     <body>
         <?php require 'conectaBD.php'; ?>
         <?php
-            $id =  $_POST['Id']
+            $id =  $_POST['Id'];
             $nome    = $_POST['nome'];
             $ano = $_POST['ano'];
             $porte = $_POST['porte'];
@@ -24,13 +24,15 @@
             mysqli_query($conn, 'SET character_set_client=utf8');
             mysqli_query($conn, 'SET character_set_results=utf8');
 
-            $sql = "UPDATE cachorro SET Nome = '$nome', Ano = '$ano', Ano_Nascimento = '$ano', Porte = '$porte' , Raca = '$raca' WHERE Id = $id";
-            
+            $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Raca = '$raca', Id_Instituicao = '$id_instituicao' WHERE Id = '$id'";
+
             // Faz o Upadate na Base de Dados
 
             if ($result = mysqli_query($conn, $sql)) {
                 echo "Um registro atualizado!";
+                echo $id;
             } else {
+                
                 echo "Erro executando a atualização: " . mysqli_error($conn);
             }
             echo "</div>";

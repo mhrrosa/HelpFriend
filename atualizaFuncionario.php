@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./CSS/cadastroc.css">
-    <title>Atualizar Funcionario</title>
+    <title>Atualizar Cachorro</title>
 
 </head>
 
@@ -39,87 +39,91 @@
 </head>
 <body>
 <?php require 'conectaBD.php'; ?>
-
     <div>
-
         <p>
             <div>
                 <!-- Acesso em:-->
                 <?php
-
-                date_default_timezone_set("America/Sao_Paulo");
-                $data = date("d/m/Y H:i:s", time());
-                echo "<p class='w3-small' > ";
-                echo "Acesso em: ";
-                echo $data;
-                echo "</p> "
+                    date_default_timezone_set("America/Sao_Paulo");
+                    $data = date("d/m/Y H:i:s", time());
+                    echo "<p class='w3-small' > ";
+                    echo "Acesso em: ";
+                    echo $data;
+                    echo "</p> "
                 ?>
 
                 <!-- Acesso ao BD-->
 				<?php		
-				$id=$_GET['id'];
+                    $id=$_GET['id'];
 
-				// Cria conexão
-				$conn = mysqli_connect($servername, $username, $password, $database);
+                    // Cria conexão
+                    $conn = mysqli_connect($servername, $username, $password, $database);
 
-				// Verifica conexão
-				if (!$conn) {
-					die("Connection failed: " . mysqli_connect_error());
-				}
-				// Configura para trabalhar com caracteres acentuados do português	 
-				mysqli_query($conn,"SET NAMES 'utf8'");
-				mysqli_query($conn,'SET character_set_connection=utf8');
-				mysqli_query($conn,'SET character_set_client=utf8');
-				mysqli_query($conn,'SET character_set_results=utf8');
+                    // Verifica conexão
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+                    // Configura para trabalhar com caracteres acentuados do português	 
+                    mysqli_query($conn,"SET NAMES 'utf8'");
+                    mysqli_query($conn,'SET character_set_connection=utf8');
+                    mysqli_query($conn,'SET character_set_client=utf8');
+                    mysqli_query($conn,'SET character_set_results=utf8');
 
-				// Faz Select na Base de Dados
-				$sql = "SELECT Nome, Senha, Id_Instituicao, cpf, Cargo, Id_Email from funcionario where Id = $id";
-				
-				//Inicio DIV form
-				echo "<div class='w3-responsive w3-card-4'>"; 
-				if ($result = mysqli_query($conn, $sql)) {
-						if (mysqli_num_rows($result) > 0) {
-						// Apresenta cada linha da tabela
-							while ($row = mysqli_fetch_assoc($result)) {
-				?>
-                    <form id="cadastro" action="atualizaFuncionario_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
-                        <div class="form">
-                            <label for="text"> Cadastro de Funcionário</label>
-                            <label for="name"> Nome 
-                                <input type="text" name="nome" value="<?php echo $row['Nome']; ?>">
-                            </label>
-                            <label for="email"> Email 
-                                <input name="email" value="<?php echo $row['Id_Email']; ?>">
-                            </label>
+                    // Faz Select na Base de Dados
 
-                            <label for="password"> Senha 
-                                <input type="password" name="senha" value="<?php echo $row['Senha']; ?>">
-                            </label>
+                    $sql = "SELECT Id, Nome, Senha, cpf, cargo, Id_Instituicao, id_email from funcionario where Id = $id";
 
-                            <label for="number"> CPF
-                                <input type="number" name="cpf" value="<?php echo $row['cpf']; ?>">
-                            </label>
-
-                            <label for="name"> Cargo 
-                                <input type="text" name="cargo" value="<?php echo $row['Cargo']; ?>">
-                            </label>
-
-                            <label for="name"> id instituicao 
-                                <input type="text" name="id" value="<?php echo $row['Id_Instituicao']; ?>">
-                            </label>
-
-                            <label for="submit"> 
-                                <button type="submit"><b>Atualizar</b></button>
-                            </label>
-
-                        </div>
-                    </form>
-								
-			<?php 
-							}
+                    if ($result = mysqli_query($conn, $sql)) {
+					    if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $id = $row['Id'];
+                                $nome      = $row['Nome'];
+                                $senha      = $row['Senha'];
+                                $cpf  = $row['cpf'];
+                                $cargo  = $row['cargo'];
+                                $id_instituicao  = $row['Id_Instituicao'];
+                                $id_email = $row['id_email']
 						}
-				}
-				else {
+                    }
+                ?>
+                  <form id="cadastro" action="cadastroFuncionario_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
+                  <input type="hidden" id="Id" name="Id" value="<?php echo $id; ?>">  
+                  <div class="form">
+                        <label for="text"> Cadastro de Funcionário</label>
+                        <label for="name"> Nome 
+                            <input type="text" name="nome" value="<?php echo $nome; ?>">
+                        </label>
+                        <label for="email"> Id email 
+                            <input type="text" name="email" value="<?php echo $id_email; ?>">
+                        </label>
+
+                        <label for="password"> Senha 
+                            <input type="password" name="senha" value="<?php echo $senha; ?>">
+                        </label>
+
+                        <label for="number"> CPF
+                            <input type="number" name="cpf" value="<?php echo $cpf; ?>">
+                        </label>
+
+                        <label for="name"> Cargo 
+                            <input type="text" name="cargo" value="<?php echo $cargo; ?>">
+                        </label>
+
+                        <label for="name"> id instituicao 
+                            <input type="text" name="id" value="<?php echo $id_instituicao; ?>">
+                        </label>
+
+                        <label for="submit"> 
+                            <button type="submit"><b>Cadastrar</b></button>
+                        </label>
+
+                    </div>
+                </form>
+			<?php 
+							
+						
+                    
+				}else {
 					echo "Erro executando UPDATE: " . mysqli_error($conn);
 				}
 				echo "</div>"; //Fim DIV form
@@ -138,5 +142,3 @@
 
 </body>
 </html>
-
-
