@@ -4,8 +4,8 @@
 <head>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">    
     <link rel="stylesheet" type="text/css" href="./CSS/cadastroc.css">
-    <title>Atualizar Cachorro</title>
-
+    <title>Help Friend</title>
+    <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
 </head>
 
 <body>
@@ -13,18 +13,23 @@
         <main>
             <div class="header-1">
                 <div class="logo">
-                    <img src="IMG/logo.jpeg" height="120" />
+                    <img src="IMG/logopng.png" height="130" />
                 </div>
                 <div class="botao-inicio-login">
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="" style="color: black; text-decoration: none;">
                                 <h3>MENU</h3>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="" style="color: black; text-decoration: none;">
                                 <h3>SOBRE</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" style="color: black; text-decoration: none;">
+                                <h3>CONTATO</h3>
                             </a>
                         </li>
                     </ul>
@@ -115,7 +120,7 @@
                         </label>
 
                         <label for="submit"> 
-                            <button type="submit"><b>Cadastrar</b></button>
+                            <button type="submit" style="max-width: 100px"><b>Atualizar</b></button>
                         </label>
 
                     </div>

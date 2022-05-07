@@ -42,6 +42,7 @@ body {
     display: inline-block;
     list-style: none;
     text-align: center;
+    color: black;
 }
 
 .botao-inicio-login {
@@ -83,7 +84,7 @@ label {
 
 button {
     color: rgb(197, 146, 83);
-    max-width: 80px;
+    max-width: 100px;
     background-color: white;
 }
 

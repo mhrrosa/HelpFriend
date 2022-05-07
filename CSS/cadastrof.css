@@ -32,7 +32,7 @@ body {
 }
 
 .botao-inicio-login {
-    color:rgb(197, 146, 83);
+    color:rgb(0, 0, 0);
     margin-left: 50px;
     float: right;
     width: 55%;
@@ -84,14 +84,13 @@ label{
 button{
     color:rgb(197, 146, 83);
     max-width:80px;
-  background-color: white;
+    background-color: white;
   
 }
 
 
 h1{
-  
-    color:rgb(0, 0, 0);
+    color:black;
 }
 
 
