@@ -11,6 +11,7 @@
 				padding-left: 20px;
                 color: black !important;
                 background-color: white !important
+
             }
 			
 			.w3-btn {
@@ -37,7 +38,6 @@
 				margin-right: auto;
 				margin-bottom: 25px;
         	}
-
         </style>
     <link rel="stylesheet" type="text/css" href="CSS/cadastroc.css"/>
 </head>

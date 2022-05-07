@@ -4,8 +4,6 @@
 <head>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="CSS/cadastroc.css">
-    <title>Help Friend</title>
-    <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
     <style>
         .img-rodape {
             display: block;
@@ -15,6 +13,8 @@
             margin-bottom: 25px;
         }
     </style>
+    <title>Help Friend</title>
+    <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
 </head>
 
 <body>

@@ -37,7 +37,6 @@
 				margin-right: auto;
 				margin-bottom: 25px;
        		}
-
         </style>
     <link rel="stylesheet" type="text/css" href="CSS/cadastrof.css"/>
 </head>
