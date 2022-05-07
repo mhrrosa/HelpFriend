@@ -9,6 +9,10 @@
 }
 
 body {
+    background-color: rgb(235, 235, 235);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    padding: auto;
     height: 100%;
     width: 100%;
 }
@@ -42,6 +46,7 @@ body {
     display: inline-block;
     list-style: none;
     text-align: center;
+    color: black;
 }
 
 .botao-inicio-login {
@@ -83,8 +88,12 @@ label {
 
 button {
     color: rgb(197, 146, 83);
-    max-width: 80px;
+    max-width: 100px;
     background-color: white;
+}
+
+button :hover{
+    cursor: pointer;
 }
 
 h1 {

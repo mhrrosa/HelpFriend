@@ -3,9 +3,18 @@
     
 <head>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="./CSS/cadastroc.css">
-    <title>Atualizar Cachorro</title>
-
+    <link rel="stylesheet" type="text/css" href="CSS/cadastroc.css">
+    <title>Help Friend</title>
+    <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
+    <style>
+        .img-rodape {
+            display: block;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 25px;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,18 +22,23 @@
         <main>
             <div class="header-1">
                 <div class="logo">
-                    <img src="IMG/logo.jpeg" height="120" />
+                    <img src="IMG/logopng.png" height="130" />
                 </div>
                 <div class="botao-inicio-login">
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="" style="color: black; text-decoration: none;">
                                 <h3>MENU</h3>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="" style="color: black; text-decoration: none;">
                                 <h3>SOBRE</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" style="color: black; text-decoration: none;">
+                                <h3>CONTATO</h3>
                             </a>
                         </li>
                     </ul>
@@ -92,11 +106,11 @@
                     <form id="cadastro" action="atualizacachorro_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
                         <input type="hidden" id="Id" name="Id" value="<?php echo $id_cachorro; ?>">
                         <div class="form">
-                            <label for="text"> Cadastro de Cachorro</label>
+                            <label for="text" style="color: black;"><b>ATUALIZAÇÃO DE CACHORRO</b></label>
                             <label for="name"> Nome 
                                 <input type="text" name="nome" value="<?php echo $nome; ?>">
                             </label>
-                            <label for="date"> Ano 
+                            <label for="date"> Ano de Nascimento
                                 <input type="date" name="ano"  
                                 pattern="((0[1-9])|([1-2][0-9])|(3[0-1]))\/((0[1-9])|(1[0-2]))\/((19|20)[0-9][0-9])"
                                 title="Formato: dd/mm/aaaa." value="<?php echo $Ano_Nascimento; ?>">
@@ -110,7 +124,7 @@
                                     <option value="Grande"<?php echo $porte=='Selecione'?'selected':'';?> >Grande</option>
                                 </select>
                             </label>
-                            <label for="name"> Raca <span></span>
+                            <label for="name"> Raça <span></span>
                                 <select name="raca">
                                     <option value= " <?php echo $raca; ?>">Raça Atual - <?php echo $raca; ?></option>
                                     <option value="Selecione a raca desejada:"<?php echo $raca=='Selecione'?'selected':'';?> >Selecione</option>
@@ -132,7 +146,7 @@
                                     <input type="hidden" name="id_instituicao" value="<?php echo $id_instituicao; ?>">
                             </label>
                             <label for="submit"> 
-                                    <button type="submit"><b>Atualizar</b></button>
+                                    <button type="submit" style="max-width: 100px"><b>Atualizar</b></button>
                             </label>
                         </div>
                     </form>
@@ -152,11 +166,10 @@
 			</div>
 		</p>
 	</div>
-
-<!-- FIM PRINCIPAL -->
-</div>
-<!-- Inclui RODAPE.PHP  -->
-<?php require 'rodape.php';?>
-
+    <footer style="background-color: white; margin-top: 100px">
+        <header class="linha-1"></header>
+        <img class="img-rodape" src="IMG/logo_verticalpng.png" style="height: 200px; text-align:center;">
+        <p class="copyright" style="text-align: center;">&copy; Copyright Help Friend - 2022</p>
+    </footer>
 </body>
 </html>
