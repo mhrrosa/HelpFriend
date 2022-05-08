@@ -113,7 +113,6 @@
                             <label for="name"> Ano de Nascimento
                                 <select name="ano">
                                     <option value= "<?php echo $Ano_Nascimento ?>">Ano de Nascimento atual - <?php echo $Ano_Nascimento; ?></option>
-                                    <option value="">Selecione o ano de nascimento:</option>
                                     <option value="2022">2022</option>
                                     <option value="2021">2021</option>
                                     <option value="2020">2020</option>
@@ -137,7 +136,6 @@
                             <label for="name"> Porte <span> </span>
                                 <select name="porte">
                                     <option value= "<?php echo $porte; ?>">Porte Atual - <?php echo $porte; ?></option>
-                                    <option value="Selecione o porte desejado:"<?php echo $porte=='Selecione'?'selected':'';?> >Selecione</option>
                                     <option value="Pequeno"<?php echo $porte=='Selecione'?'selected':'';?> >Pequeno</option>
                                     <option value="Médio"<?php echo $porte=='Selecione'?'selected':'';?> >Medio</option>
                                     <option value="Grande"<?php echo $porte=='Selecione'?'selected':'';?> >Grande</option>
@@ -146,7 +144,6 @@
                             <label for="name"> Raça <span></span>
                                 <select name="raca">
                                     <option value= " <?php echo $raca; ?>">Raça Atual - <?php echo $raca; ?></option>
-                                    <option value="Selecione a raca desejada:"<?php echo $raca=='Selecione'?'selected':'';?> >Selecione</option>
                                     <option value="Shih Tzu"<?php echo $raca=='Selecione'?'selected':'';?> >Shih Tzu</option>
                                     <option value="Yorkshire"<?php echo $raca=='Selecione'?'selected':'';?> >Yorkshire</option>
                                     <option value="Buldogue frances"<?php echo $raca=='Selecione'?'selected':'';?> >Buldogue frances</option>
