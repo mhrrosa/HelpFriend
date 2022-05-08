@@ -3,14 +3,19 @@
 </html>
 <head>
     <title>Help Friend</title>
-    <link rel="icon" type="image/jpeg" href="IMG/logo.jpeg"/>
+    <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <style>
             .w3-theme {
-                color: rgb(197, 146, 83) !important;
-                background-color: #380077 !important
+				padding-left: 20px;
+                color: black !important;
+                background-color: white !important
             }
+
+			.w3-btn {
+				border: 1px solid rgb(235, 235, 235);
+			}
 
             .w3-code {
                 border-left: 10px solid rgb(197, 146, 83)
@@ -19,6 +24,19 @@
             .myMenu {
                 margin-bottom: 150px
             }
+
+			.label_exclusao {
+				color: black;
+				text-align: start;
+			}
+
+			.img-rodape {
+				display: block;
+				margin-top: 30px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 25px;
+       		}
         </style>
     <link rel="stylesheet" type="text/css" href="CSS/cadastrof.css"/>
 </head>
@@ -26,12 +44,25 @@
     <main>
         <div class="header-1">
             <div class="logo">
-                <img src="IMG/logo.jpeg" height="120"/>
+				<img src="IMG/logopng.png" height="130" />
             </div>
             <div class="botao-inicio-login">
                 <ul>
-                    <li><a href=""><h3>MENU</h3></a></li>
-                    <li><a href=""><h3>SOBRE</h3></a></li>
+                    <li>
+						<a href="" style="color: black; text-decoration: none;">
+							<h3>MENU</h3>
+						</a>
+					</li>
+                    <li>
+						<a href="" style="color: black; text-decoration: none;">
+							<h3>SOBRE</h3>
+						</a>
+					</li>
+					<li>
+                        <a href="" style="color: black; text-decoration: none;">
+                            <h3>CONTATO</h3>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -89,22 +120,22 @@
 							while ($row = mysqli_fetch_assoc($result)) {
 								
 				?>
-								<div class="w3-container w3-theme">
-									<h2>Exclusão do Funcionário Cod. = [<?php echo $row['Id']; ?>]</h2>
+								<div class="w3-theme">
+									<h2>ID do Funcionário COD: <?php echo $row['Id']; ?></h2>
 								</div>
 								<form class="w3-container" action="deletarFuncionario_exe.php" method="post" onsubmit="return check(this.form)">
 									<input type="hidden" id="Id" name="Id" value="<?php echo $row['Id']; ?>">
 									<p>
-									<label class="w3-text-deep-purple"><b>Nome: </b> <?php echo $row['Nome']; ?> </label></p>
+									<label class="label_exclusao"><b>Nome: </b> <?php echo $row['Nome']; ?> </label></p>
 									<p>
-									<label class="w3-text-deep-purple"><b>Senha: </b><?php echo $row['Senha']; ?></label></p>
+									<label class="label_exclusao"><b>Senha: </b><?php echo $row['Senha']; ?></label></p>
 									<p>
-									<label class="w3-text-deep-purple"><b>CPF: </b><?php echo $row['cpf'] ?></label></p>
+									<label class="label_exclusao"><b>CPF: </b><?php echo $row['cpf'] ?></label></p>
 									<p>
-									<label class="w3-text-deep-purple"><b>Cargo: </b><?php echo $row['cargo']; ?></label></p>
+									<label class="label_exclusao"><b>Cargo: </b><?php echo $row['cargo']; ?></label></p>
 									<p>
-									<input type="submit" value="Confirma exclusão?" class="w3-btn w3-red" >
-									<input type="button" value="Cancelar" class="w3-btn w3-theme" onclick="window.location.href='mostrarFuncionario.php'"></p>
+									<input type="submit" value="Excluir" class="w3-btn w3-red" >
+									<input type="button" value="Cancelar" class="w3-btn" onclick="window.location.href='mostrarFuncionario.php'"></p>
 								</form>
 			<?php 
 							}
@@ -123,5 +154,10 @@
 	</div>
 <!-- FIM PRINCIPAL -->
 </div>
+<footer style="background-color: white; margin-top: 100px">
+    <header class="linha-1"></header>
+    <img class="img-rodape" src="IMG/logo_verticalpng.png" style="height: 200px; text-align:center;">
+    <p class="copyright" style="text-align: center;">&copy; Copyright Help Friend - 2022</p>
+</footer>
 </body>
 </html>

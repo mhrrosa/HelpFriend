@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
-
+    
 <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">    
     <link rel="stylesheet" type="text/css" href="./CSS/cadastroc.css">
-    <title>Atualizar Cachorro</title>
-
+    <title>Help Friend</title>
+    <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
+    <style>
+        .img-rodape {
+            display: block;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 25px;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,18 +22,23 @@
         <main>
             <div class="header-1">
                 <div class="logo">
-                    <img src="IMG/logo.jpeg" height="120" />
+                    <img src="IMG/logopng.png" height="130" />
                 </div>
                 <div class="botao-inicio-login">
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="" style="color: black; text-decoration: none;">
                                 <h3>MENU</h3>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="" style="color: black; text-decoration: none;">
                                 <h3>SOBRE</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" style="color: black; text-decoration: none;">
+                                <h3>CONTATO</h3>
                             </a>
                         </li>
                     </ul>
@@ -89,7 +104,7 @@
                   <form id="cadastro" action="atualizaFuncionario_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
                   <input type="hidden" id="Id" name="Id" value="<?php echo $id; ?>">  
                   <div class="form">
-                        <label for="text"> Cadastro de Funcionário</label>
+                        <label for="text" style="color: black;"><b>ATUALIZAÇÃO DE FUNCIONÁRIO</b></label>
                         <label for="name"> Nome 
                             <input type="text" name="nome" value="<?php echo $nome; ?>">
                         </label>
@@ -114,7 +129,7 @@
                         </label>
 
                         <label for="submit"> 
-                            <button type="submit"><b>Cadastrar</b></button>
+                            <button type="submit" style="max-width: 100px"><b>Atualizar</b></button>
                         </label>
 
                     </div>
@@ -134,11 +149,10 @@
 			</div>
 		</p>
 	</div>
-
-<!-- FIM PRINCIPAL -->
-</div>
-<!-- Inclui RODAPE.PHP  -->
-<?php require 'rodape.php';?>
-
+    <footer style="background-color: white; margin-top: 100px">
+        <header class="linha-1"></header>
+        <img class="img-rodape" src="IMG/logo_verticalpng.png" style="height: 200px; text-align:center;">
+        <p class="copyright" style="text-align: center;">&copy; Copyright Help Friend - 2022</p>
+    </footer>
 </body>
 </html>
