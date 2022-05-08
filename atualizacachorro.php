@@ -110,10 +110,29 @@
                             <label for="name"> Nome 
                                 <input type="text" name="nome" value="<?php echo $nome; ?>">
                             </label>
-                            <label for="date"> Ano de Nascimento
-                                <input type="date" name="ano"  
-                                pattern="((0[1-9])|([1-2][0-9])|(3[0-1]))\/((0[1-9])|(1[0-2]))\/((19|20)[0-9][0-9])"
-                                title="Formato: dd/mm/aaaa." value="<?php echo $Ano_Nascimento; ?>">
+                            <label for="name"> Ano de Nascimento
+                                <select name="ano">
+                                    <option value= "<?php echo $Ano_Nascimento ?>">Ano de Nascimento atual - <?php echo $Ano_Nascimento; ?></option>
+                                    <option value="">Selecione o ano de nascimento:</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                </select>
                             </label>
                             <label for="name"> Porte <span> </span>
                                 <select name="porte">

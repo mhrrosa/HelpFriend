@@ -86,7 +86,7 @@
 
                     // Faz Select na Base de Dados
 
-                    $sql = "SELECT Id, Nome, Senha, cpf, cargo, Id_Instituicao, id_email from funcionario where Id = $id";
+                    $sql = "SELECT Id, Nome, Senha, cpf, cargo, Id_Instituicao, email from funcionario where Id = $id";
 
                     if ($result = mysqli_query($conn, $sql)) {
 					    if (mysqli_num_rows($result) > 0) {
@@ -97,7 +97,7 @@
                                 $cpf  = $row['cpf'];
                                 $cargo  = $row['cargo'];
                                 $id_instituicao  = $row['Id_Instituicao'];
-                                $id_email = $row['id_email'];
+                                $id_email = $row['email'];
 						}
                     }
                 ?>
@@ -108,7 +108,7 @@
                         <label for="name"> Nome 
                             <input type="text" name="nome" value="<?php echo $nome; ?>">
                         </label>
-                        <label for="email"> Id email 
+                        <label for="email">Email 
                             <input type="text" name="email" value="<?php echo $id_email; ?>">
                         </label>
 

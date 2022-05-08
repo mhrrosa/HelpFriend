@@ -108,7 +108,7 @@
                                 $mes = $dataN[1];
                                 $dia = $dataN[2];
                                 $cod = $row["id"];
-                                $nova_data = $dia . '/' . $mes . '/' . $ano;
+                                $nova_data = $ano;
                                 echo "<tr>";
                                 echo "<td>";
                                 echo $cod;

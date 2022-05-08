@@ -1,11 +1,3 @@
-DROP TABLE IF EXISTS `email`;
-
-CREATE TABLE `email` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `Email` varchar(100) NOT NULL,
-  PRIMARY KEY (`Id`)
-);
-
 DROP TABLE IF EXISTS `endereco`;
 
 CREATE TABLE `endereco` (
@@ -32,10 +24,8 @@ CREATE TABLE `administrador` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
-  `id_email` int NOT NULL,
-  UNIQUE KEY `administrador_un` (`Id`),
-  KEY `administrador_FK` (`id_email`),
-  CONSTRAINT `administrador_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`)
+  `email` varchar(100) NOT NULL,
+  UNIQUE KEY `administrador_un` (`Id`)
 );
 
 DROP TABLE IF EXISTS `instituicao`;
@@ -46,14 +36,12 @@ CREATE TABLE `instituicao` (
   `Senha` varchar(100) NOT NULL,
   `id_administrador` int NOT NULL,
   `id_endereco` int NOT NULL,
-  `id_email` int NOT NULL,
+  `email` varchar(100) NOT NULL,
   `id_telefone` int NOT NULL,
   UNIQUE KEY `instituicao_un` (`Id`),
   KEY `instituicao_FK` (`id_administrador`),
   KEY `instituicao_endereco_FK` (`id_endereco`),
-  KEY `instituicao_email_FK` (`id_email`),
   KEY `instituicao_telefone_FK` (`id_telefone`),
-  CONSTRAINT `instituicao_email_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`),
   CONSTRAINT `instituicao_endereco_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`),
   CONSTRAINT `instituicao_FK` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`Id`),
   CONSTRAINT `instituicao_telefone_FK` FOREIGN KEY (`id_telefone`) REFERENCES `telefone_instituicao` (`Id`)
@@ -65,11 +53,10 @@ CREATE TABLE `adotante` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
-  `Cpf` varchar(100) NOT NULL,
+  `Cpf` varchar(11) NOT NULL,
   `id_endereco` int NOT NULL,
+  `email` varchar(100) NOT NULL,
   UNIQUE KEY `adotante_un` (`Id`),
-  KEY `adotante_email_FK` (`id_endereco`),
-  CONSTRAINT `adotante_email_FK` FOREIGN KEY (`id_endereco`) REFERENCES `email` (`Id`),
   CONSTRAINT `adotante_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`)
 );
 
@@ -79,7 +66,7 @@ CREATE TABLE `cachorro` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Raca` varchar(50) NOT NULL,
-  `Ano_Nascimento` date NOT NULL,
+  `Ano_Nascimento` varchar(4) NOT NULL,
   `Porte` varchar(30) NOT NULL,
   `Id_Instituicao` int NOT NULL,
   `Imagem` binary(1) DEFAULT NULL,
@@ -95,13 +82,11 @@ CREATE TABLE `funcionario` (
   `Nome` varchar(100) NOT NULL,
   `Senha` varchar(100) NOT NULL,
   `Id_Instituicao` int NOT NULL,
-  `cpf` int NOT NULL,
+  `cpf` varchar(11) NOT NULL,
   `cargo` varchar(100) NOT NULL,
-  `id_email` int NOT NULL,
+  `email` varchar(100) NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `funcionario_FK` (`Id_Instituicao`),
-  KEY `funcionario_email_FK` (`id_email`),
-  CONSTRAINT `funcionario_email_FK` FOREIGN KEY (`id_email`) REFERENCES `email` (`Id`),
   CONSTRAINT `funcionario_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
 );
 

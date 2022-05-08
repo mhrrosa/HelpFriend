@@ -49,7 +49,7 @@
     <header class="linha-1"></header>
     </header>
     <header>
-    echo "<div class='w3-responsive w3-card-4'>";
+    '<div class='w3-responsive w3-card-4'>
         <div class="formcadastro">
             <form id="cadastro" action="cadastroCachorro_exe.php" method="post" onsubmit="return check(this.form)">
                 <div class="form">
@@ -114,15 +114,11 @@
                 </div>
             </form>
             <?php 
-							
-						
 
 				echo "</div>"; //Fim DIV form
 				mysqli_close($conn); //Encerra conexao com o BD
 
 			?>
-
-
 
         </div>
     </header>

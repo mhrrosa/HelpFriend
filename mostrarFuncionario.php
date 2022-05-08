@@ -88,7 +88,7 @@
         mysqli_query($conn,'SET character_set_client=utf8');
         mysqli_query($conn,'SET character_set_results=utf8');
 
-                    $sql = "SELECT id, Nome, Id_email,cpf,cargo FROM funcionario";
+                    $sql = "SELECT id, Nome, email,cpf,cargo FROM funcionario";
                     echo "<div class='w3-responsive w3-card-4'>";
                     if ($result = mysqli_query($conn, $sql)) {
                         echo "<table class='w3-table-all'>";
@@ -110,7 +110,7 @@
                                 echo "</td><td>";
                                 echo $row["Nome"];
                                 echo "</td><td>";
-                                echo $row["Id_email"];
+                                echo $row["email"];
                                 echo "</td><td>";
                                 echo $row["cpf"];
                                 echo "</td><td>";
