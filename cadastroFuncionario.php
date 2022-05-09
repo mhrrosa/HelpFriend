@@ -56,7 +56,7 @@
                             <input type="text" name="nome" required>
                         </label>
                         <label for="email"> Email 
-                            <input type="text" name="email"required>
+                            <input type="email" name="email"required>
                         </label>
 
                         <label for="password"> Senha 
