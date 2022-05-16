@@ -113,7 +113,7 @@
 				$id=$_GET['id'];
 				
 				// Faz Select na Base de Dados
-				$sql = "SELECT Id, Nome, Raca, Ano_Nascimento, Porte FROM cachorro";
+				$sql = "SELECT Id, Nome, Raca, Ano_Nascimento, Porte FROM cachorro WHERE Id = $id";
 				echo "<div class='w3-responsive w3-card-4'>"; //Inicio form
 				 if ($result = mysqli_query($conn, $sql)) {
 						if (mysqli_num_rows($result) > 0) {
