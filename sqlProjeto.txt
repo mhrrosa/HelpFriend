@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS `endereco`;
 
 CREATE TABLE `endereco` (
@@ -7,14 +8,6 @@ CREATE TABLE `endereco` (
   `Logradouro` varchar(100) NOT NULL,
   `Numero` int NOT NULL,
   `Complemento` varchar(100) NOT NULL,
-  PRIMARY KEY (`Id`)
-);
-
-DROP TABLE IF EXISTS `telefone_instituicao`;
-
-CREATE TABLE `telefone_instituicao` (
-  `Id` int NOT NULL AUTO_INCREMENT,
-  `Telefone` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
 );
 
@@ -37,14 +30,12 @@ CREATE TABLE `instituicao` (
   `id_administrador` int NOT NULL,
   `id_endereco` int NOT NULL,
   `email` varchar(100) NOT NULL,
-  `id_telefone` int NOT NULL,
+  `telefone` varchar(11) NOT NULL,
   UNIQUE KEY `instituicao_un` (`Id`),
   KEY `instituicao_FK` (`id_administrador`),
   KEY `instituicao_endereco_FK` (`id_endereco`),
-  KEY `instituicao_telefone_FK` (`id_telefone`),
   CONSTRAINT `instituicao_endereco_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`),
-  CONSTRAINT `instituicao_FK` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`Id`),
-  CONSTRAINT `instituicao_telefone_FK` FOREIGN KEY (`id_telefone`) REFERENCES `telefone_instituicao` (`Id`)
+  CONSTRAINT `instituicao_FK` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`Id`)
 );
 
 DROP TABLE IF EXISTS `adotante`;
@@ -68,7 +59,6 @@ CREATE TABLE `cachorro` (
   `Raca` varchar(50) NOT NULL,
   `Ano_Nascimento` varchar(4) NOT NULL,
   `Porte` varchar(30) NOT NULL,
-  `Apto` varchar(3) NOT NULL,
   `Id_Instituicao` int NOT NULL,
   `Imagem` binary(1) DEFAULT NULL,
   PRIMARY KEY (`Id`),
@@ -103,5 +93,3 @@ CREATE TABLE `reserva` (
   CONSTRAINT `reserva_adotante_FK` FOREIGN KEY (`id_adotante`) REFERENCES `adotante` (`Id`),
   CONSTRAINT `reserva_cachorro_FK` FOREIGN KEY (`id_cachorro`) REFERENCES `cachorro` (`Id`)
 );
-
-
