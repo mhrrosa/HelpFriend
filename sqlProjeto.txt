@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS `endereco`;
 
 CREATE TABLE `endereco` (
@@ -51,19 +50,29 @@ CREATE TABLE `adotante` (
   CONSTRAINT `adotante_FK` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`Id`)
 );
 
+DROP TABLE IF EXISTS `raca`;
+
+create table `raca` (
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+);
+
 DROP TABLE IF EXISTS `cachorro`;
 
 CREATE TABLE `cachorro` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
-  `Raca` varchar(50) NOT NULL,
+  `Id_Raca` int NOT NULL,
   `Ano_Nascimento` varchar(4) NOT NULL,
   `Porte` varchar(30) NOT NULL,
   `Id_Instituicao` int NOT NULL,
   `Imagem` binary(1) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `cachorro_FK` (`Id_Instituicao`),
-  CONSTRAINT `cachorro_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`)
+  KEY `raca_fk` (`Id_Raca`),
+  CONSTRAINT `cachorro_FK` FOREIGN KEY (`Id_Instituicao`) REFERENCES `instituicao` (`Id`),
+  CONSTRAINT `cachorro_raca_FK` FOREIGN KEY (`Id_Raca`) REFERENCES `raca` (`Id`)
 );
 
 DROP TABLE IF EXISTS `funcionario`;
@@ -87,6 +96,8 @@ CREATE TABLE `reserva` (
   `id_reserva` int NOT NULL AUTO_INCREMENT,
   `id_adotante` int NOT NULL,
   `id_cachorro` int NOT NULL,
+  `descricao` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
   PRIMARY KEY (`id_reserva`),
   KEY `reserva_adotante_FK` (`id_adotante`),
   KEY `reserva_cachorro_FK` (`id_cachorro`),
