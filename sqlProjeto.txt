@@ -66,6 +66,7 @@ CREATE TABLE `cachorro` (
   `Id_Raca` int NOT NULL,
   `Ano_Nascimento` varchar(4) NOT NULL,
   `Porte` varchar(30) NOT NULL,
+  `apto` varchar(3) NOT NULL,
   `Id_Instituicao` int NOT NULL,
   `Imagem` binary(1) DEFAULT NULL,
   PRIMARY KEY (`Id`),
