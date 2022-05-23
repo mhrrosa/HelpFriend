@@ -39,6 +39,56 @@
     </header>
     <header class="linha-1"></header>
     </header>
+    <header>
+            <div class="formcadastro">
+                <form id="cadastro" action="cadastroFuncionario_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
+                    <div class="form">
+                        <label for="text" style="color: black;"><b>CADASTRO ADOTANTE</b></label>
+                        <label for="name"> Nome 
+                            <input type="text" name="nome" required>
+                        </label>
+                        <label for="password"> Senha 
+                            <input type="password" name="senha"required>
+                        </label>
+
+                        <label for="cpf"> CPF
+                            <input type="text" name="cpf"required>
+                        </label>
+
+                        <label for="email"> E-mail
+                            <input type="email" name="email"required>
+                        </label>
+
+                        <label for="logradouro"> Logradouro 
+                            <input type="text" name="logradouro"required>
+                        </label>               
+
+                        <label for="numero"> Numero 
+                            <input type="text" name="numero"required>
+                        </label>
+
+                        <label for="complemento"> Complemento
+                            <input type="text" name="complemento"required>
+                        </label>
+
+                        <label for="bairro"> Bairro
+                            <input type="text" name="bairro"required>
+                        </label>
+
+                        <label for="estado"> Estado 
+                            <input type="text" name="estado"required>
+                        </label>
+
+
+
+                        <label for="submit"> 
+                            <button type="submit" style="max-width: 100px"><b>Cadastrar</b></button>
+                        </label>
+
+                    </div>
+                </form>
+            </div>
+        </header>
 
     <footer style="background-color: white; margin-top: 100px">
         <header class="linha-1"></header>
