@@ -1,44 +1,63 @@
-<!DOCTYPE html>
-<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/cadastroc.css">
-    <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
-    <title>Início - Help Friend</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+            .w3-theme {
+                color: rgb(197, 146, 83) !important;
+                background-color: #380077 !important
+            }
+
+            .w3-code {
+                border-left: 10px solid rgb(197, 146, 83)
+            }
+
+            .myMenu {
+                margin-bottom: 150px
+            }
+
+            .img-rodape {
+                display: block;
+                margin-top: 30px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 25px;
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="CSS/cadastrof.css">
+        <title>Cachorros - Help Friend</title>
+        <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
 </head>
-<body>
-    <header class="cadastro-cachorro">
-        <main>
-            <div class="header-1">
-                <div class="logo">
-                    <img src="IMG/logopng.png" height="130" />
+<header class="cadastro-funcionario">
+            <main>
+                <div class="header-1">
+                    <div class="logo">
+                        <img src="IMG/logopng.png" height="130" />
+                    </div>
+                    <div class="botao-inicio-login">
+                        <ul>
+                            <li>
+                                <a href="" style="color: black; text-decoration: none;">
+                                    <h3>MENU</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" style="color: black; text-decoration: none;">
+                                    <h3>SOBRE</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" style="color: black; text-decoration: none;">
+                                    <h3>CONTATO</h3>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="botao-inicio-login">
-                    <ul>
-                        <li>
-                            <a href="" style="color: black; text-decoration: none;">
-                                <h3>MENU</h3>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" style="color: black; text-decoration: none;">
-                                <h3>SOBRE</h3>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" style="color: black; text-decoration: none;">
-                                <h3>CONTATO</h3>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </main>
-    </header>
-    <header class="linha-1"></header>
-    </header>
+            </main>
+</header>
+<header class="linha-1"></header>
+        
+<body  onload="w3_show_nav('menuProf')">
+    <!-- Inclui MENU.PHP  -->
     <?php require 'conectaBD.php'; ?>
 
     <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
@@ -50,35 +69,23 @@
             <p class="w3-large">
             <p>
             <div class="w3-code cssHigh notranslate">  
-        <!-- Acesso ao BD-->
-                <?php
+       <!-- Acesso ao BD-->
+        <?php
 
-                    date_default_timezone_set("America/Sao_Paulo");
-                    $data = date("d/m/Y H:i:s", time());
-                    echo "<p class='w3-small' > ";
-                    echo "Acesso em: ";
-                    echo $data;
-                    echo "</p> "
-                ?>
+        // Cria conexão
+        $conn = mysqli_connect($servername, $username, $password, $database);
 
-                <!-- Acesso ao BD-->
-                <?php
-
-                    // Cria conexão
-                    $conn = mysqli_connect($servername, $username, $password, $database);
-                    
-                    // Verifica conexão 
-                    if (!$conn) {
-                        echo "</table>";
-                        echo "</div>";
-                        die("Falha na conexão com o Banco de Dados: " . mysqli_connect_error());
-                    }
-                    
-                    // Configura para trabalhar com caracteres acentuados do português
-                    mysqli_query($conn,"SET NAMES 'utf8'");
-                    mysqli_query($conn,'SET character_set_connection=utf8');
-                    mysqli_query($conn,'SET character_set_client=utf8');
-                    mysqli_query($conn,'SET character_set_results=utf8');
+        // Verifica conexão 
+        if (!$conn) {
+            echo "</table>";
+            echo "</div>";
+            die("Falha na conexão com o Banco de Dados: " . mysqli_connect_error());
+        }
+        // Configura para trabalhar com caracteres acentuados do português
+        mysqli_query($conn,"SET NAMES 'utf8'");
+        mysqli_query($conn,'SET character_set_connection=utf8');
+        mysqli_query($conn,'SET character_set_client=utf8');
+        mysqli_query($conn,'SET character_set_results=utf8');
 
                     // Faz Select na Base de Dados
                     $sql = "SELECT id, Nome, Raca, Ano_nascimento,Porte,Imagem FROM cachorro";
