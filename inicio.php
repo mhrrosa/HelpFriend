@@ -102,8 +102,6 @@
                                 $nova_data = $ano;
                                 echo "<tr>";
                                 echo "<td>";
-                                echo $cod;
-                                echo "</td><td>";
                                 echo $row["Nome"];
                                 echo "</td><td>";
                                 echo $row["Raca"];
