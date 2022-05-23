@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `endereco`;
 
 CREATE TABLE `endereco` (
   `Id` int NOT NULL,
-  `Bairro` varchar(100) NOT NULL,
+  `Cidade` varchar(100) NOT NULL,
   `Estado` varchar(100) NOT NULL,
   `Logradouro` varchar(100) NOT NULL,
   `Numero` int NOT NULL,
