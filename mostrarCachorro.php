@@ -23,7 +23,7 @@
             }
         </style>
         <link rel="stylesheet" type="text/css" href="CSS/cadastrof.css">
-        <title>Help Friend</title>
+        <title>Cachorros - Help Friend</title>
         <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
 </head>
 <header class="cadastro-funcionario">

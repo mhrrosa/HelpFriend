@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="CSS/cadastroc.css">
-    <title>Help Friend</title>
+    <title>Atualização de Cachorro - Help Friend</title>
     <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
     <style>
         .img-rodape {

@@ -11,7 +11,7 @@
             margin-bottom: 25px;
         }
     </style>
-    <title>Help Friend</title>
+    <title>Cadastro de Cachorro - Help Friend</title>
     <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
 
     </head>
