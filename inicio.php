@@ -67,34 +67,53 @@
             <h1 class="w3-xxlarge"style="margin-left:43%">Cachorros</h1>
 
             <p class="w3-large">
-            <p>
             <div class="w3-code cssHigh notranslate">  
        <!-- Acesso ao BD-->
-        <?php
+            <?php
 
-            // Cria conexão
-            $conn = mysqli_connect($servername, $username, $password, $database);
+                // Cria conexão
+                $conn = mysqli_connect($servername, $username, $password, $database);
 
-            // Verifica conexão 
-            if (!$conn) {
-                die("Falha na conexão com o Banco de Dados: " . mysqli_connect_error());
-            }
-            // Configura para trabalhar com caracteres acentuados do português
-            mysqli_query($conn,"SET NAMES 'utf8'");
-            mysqli_query($conn,'SET character_set_connection=utf8');
-            mysqli_query($conn,'SET character_set_client=utf8');
-            mysqli_query($conn,'SET character_set_results=utf8');
+                // Verifica conexão 
+                if (!$conn) {
+                    die("Falha na conexão com o Banco de Dados: " . mysqli_connect_error());
+                }
+                // Configura para trabalhar com caracteres acentuados do português
+                mysqli_query($conn,"SET NAMES 'utf8'");
+                mysqli_query($conn,'SET character_set_connection=utf8');
+                mysqli_query($conn,'SET character_set_client=utf8');
+                mysqli_query($conn,'SET character_set_results=utf8');
 
-            // Faz Select na Base de Dados
-            $sql = "SELECT c.id as id, c.Nome as Nome, r.Nome as Raca, c.Ano_nascimento as Ano_nascimento, c.Porte as Porte, c.Imagem as Imagem FROM cachorro c, raca r where c.Id_Raca = r.Id";
-            foreach($sql as $key => $value) {
-        ?>
+                // Faz Select na Base de Dados
+                $sql = "SELECT c.id as id, c.Nome as Nome, r.Nome as Raca, c.Ano_nascimento as Ano_nascimento, c.Porte as Porte, c.Imagem as Imagem FROM cachorro c, raca r where c.Id_Raca = r.Id";
+                class cachorro {
+                    public $nome;
+                    public $raca;
+                    public $ano_nascimento;
+                    public $porte;
+                    public $imagem;
+                }
+
+                $item = array();
+
+                if (mysqli_num_rows($sql) > 0) {
+                    print("Hello World");
+                    $item[0] -> new cachorro();
+                    $item[0] -> nome = $row'['Nome']';
+                    // $item[mysqli_num_rows[($result)]] => raca = $row['Raca'];
+                    // $item[mysqli_num_rows[($result)]] => ano_nascimento = $row['Ano_Nascimento'];
+                    // $item[mysqli_num_rows[($result)]] => porte = $row['Porte'];
+                    // $item[mysqli_num_rows[($result)]] => imagem = $row['Imagem'];
+                }
+                foreach($item as $key => $value) {
+
+            ?>
                 aaaaaaaaaaaaaaaaaaa 
-                <?php
-                    }
-                ?>
-            </div>
+            <?php
+                }
+            ?>
         </div>
+    </div>
 
     <footer style="background-color: white; margin-top: 100px">
         <header class="linha-1"></header>
