@@ -114,7 +114,7 @@
                                 echo "<td>";
                                 echo $row["Nome"];
                                 echo "</td><td>";
-                                echo $raca["Raca"];
+                                echo $sql2["Raca"];
                                 echo "</td><td>";
                                 echo $nova_data;
                                 echo "</td><td>";
