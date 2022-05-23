@@ -88,7 +88,10 @@
         mysqli_query($conn,'SET character_set_results=utf8');
 
                     // Faz Select na Base de Dados
-                    $sql = "SELECT id, Nome, Raca, Ano_nascimento,Porte,Imagem FROM cachorro";
+                    $sql = "SELECT id, Nome, Id_Raca, Ano_nascimento,Porte,Imagem FROM cachorro";
+                    $id_raca=$sql['Id_Raca'];
+                    $sql2 = "SELECT Id, Nome FROM raca where Id = $id_raca ";
+                    $raca= "SELECT Nome FROM raca where Id = $id_raca ";
                     echo "<div class='w3-responsive w3-card-4'>";
                     if ($result = mysqli_query($conn, $sql)) {
                         echo "<table class='w3-table-all'>";
@@ -111,7 +114,7 @@
                                 echo "<td>";
                                 echo $row["Nome"];
                                 echo "</td><td>";
-                                echo $row["Raca"];
+                                echo $raca["Raca"];
                                 echo "</td><td>";
                                 echo $nova_data;
                                 echo "</td><td>";
