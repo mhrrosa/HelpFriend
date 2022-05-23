@@ -75,6 +75,10 @@
                             <input type="text" name="bairro"required>
                         </label>
 
+                        <label for="cidade"> Cidade
+                            <input type="text" name="cidade"required>
+                        </label>
+
                         <label for="estado"> Estado 
                             <input type="text" name="estado"required>
                         </label>
