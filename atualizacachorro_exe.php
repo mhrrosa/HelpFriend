@@ -1,4 +1,3 @@
-
 <html>
 	<head>
 	  <title>Atualização de Cachorro - Help Friend</title>
