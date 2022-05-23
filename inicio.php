@@ -72,77 +72,29 @@
        <!-- Acesso ao BD-->
         <?php
 
-        // Cria conexão
-        $conn = mysqli_connect($servername, $username, $password, $database);
+            // Cria conexão
+            $conn = mysqli_connect($servername, $username, $password, $database);
 
-        // Verifica conexão 
-        if (!$conn) {
-            echo "</table>";
-            echo "</div>";
-            die("Falha na conexão com o Banco de Dados: " . mysqli_connect_error());
-        }
-        // Configura para trabalhar com caracteres acentuados do português
-        mysqli_query($conn,"SET NAMES 'utf8'");
-        mysqli_query($conn,'SET character_set_connection=utf8');
-        mysqli_query($conn,'SET character_set_client=utf8');
-        mysqli_query($conn,'SET character_set_results=utf8');
+            // Verifica conexão 
+            if (!$conn) {
+                die("Falha na conexão com o Banco de Dados: " . mysqli_connect_error());
+            }
+            // Configura para trabalhar com caracteres acentuados do português
+            mysqli_query($conn,"SET NAMES 'utf8'");
+            mysqli_query($conn,'SET character_set_connection=utf8');
+            mysqli_query($conn,'SET character_set_client=utf8');
+            mysqli_query($conn,'SET character_set_results=utf8');
 
-                    // Faz Select na Base de Dados
-                    $sql = "SELECT id, Nome, Id_Raca, Ano_nascimento,Porte,Imagem FROM cachorro";
-                    $id_raca=$sql['Id_Raca'];
-                    $sql2 = "SELECT Id, Nome FROM raca where Id = $id_raca ";
-                    $raca= "SELECT Nome FROM raca where Id = $id_raca ";
-                    echo "<div class='w3-responsive w3-card-4'>";
-                    if ($result = mysqli_query($conn, $sql)) {
-                        echo "<table class='w3-table-all'>";
-                        echo "	<tr>";
-                        echo "	  <th>Nome</th>";
-                        echo "	  <th>Raça</th>";
-                        echo "	  <th>Ano Nascimento</th>";
-                        echo "	  <th>Porte</th>";
-                        echo "	</tr>";
-                        if (mysqli_num_rows($result) > 0) {
-                            // Apresenta cada linha da tabela
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $dataN = explode('-', $row["Ano_nascimento"]);
-                                $ano = $dataN[0];
-                                $mes = $dataN[1];
-                                $dia = $dataN[2];
-                                $cod = $row["id"];
-                                $nova_data = $ano;
-                                echo "<tr>";
-                                echo "<td>";
-                                echo $row["Nome"];
-                                echo "</td><td>";
-                                echo $sql2["Raca"];
-                                echo "</td><td>";
-                                echo $nova_data;
-                                echo "</td><td>";
-                                echo $row["Porte"];
-                                echo "</td><td>";
-                                
-                                //Atualizar e Excluir registro de prof
-                ?>
-                            
-                            </td><td>
-                            </td>
-                            </tr>
+            // Faz Select na Base de Dados
+            $sql = "SELECT c.id as id, c.Nome as Nome, r.Nome as Raca, c.Ano_nascimento as Ano_nascimento, c.Porte as Porte, c.Imagem as Imagem FROM cachorro c, raca r where c.Id_Raca = r.Id";
+            foreach($sql as $key => $value) {
+        ?>
+                aaaaaaaaaaaaaaaaaaa 
                 <?php
-                            }
-                        }
-                            echo "</table>";
-                            echo "</div>";
-                    } else {
-                        echo "Erro executando SELECT: " . mysqli_error($conn);
                     }
-
-                    mysqli_close($conn);
-
                 ?>
             </div>
         </div>
-
-
 
     <footer style="background-color: white; margin-top: 100px">
         <header class="linha-1"></header>
