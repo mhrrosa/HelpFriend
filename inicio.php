@@ -108,10 +108,7 @@
                 foreach($item as $key => $value) {
 
             ?>
-                aaaaaaaaaaaaaaaaaaa 
-            <?php
-                }
-            ?>
+
         </div>
     </div>
 
