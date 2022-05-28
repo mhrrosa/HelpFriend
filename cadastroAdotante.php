@@ -41,7 +41,7 @@
     </header>
     <header>
             <div class="formcadastro">
-                <form id="cadastro" action="cadastroFuncionario_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
+                <form id="cadastro" action="cadastroAdotante_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
                     <div class="form">
                         <label for="text" style="color: black;"><b>CADASTRO ADOTANTE</b></label>
                         <label for="name"> Nome 
