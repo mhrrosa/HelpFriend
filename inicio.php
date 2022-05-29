@@ -9,6 +9,8 @@
             .w3-code {
                 border-left: 10px solid rgb(197, 146, 83);
                 display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
             }
 
             .myMenu {
@@ -34,7 +36,8 @@
 
             .container {
                 padding: 2px 16px;
-                
+                align: left
+
             }
         </style>
         <link rel="stylesheet" type="text/css" href="CSS/cadastrof.css">
@@ -126,9 +129,11 @@
                          
                 <?php
                     }
+                } else {
+                    mysqli_close($conn);  //Encerra conexao com o BD
                 }
 
-                mysqli_close($conn);  //Encerra conexao com o BD
+                
             ?>
 
         </div>
