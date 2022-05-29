@@ -10,7 +10,6 @@
                 border-left: 10px solid rgb(197, 146, 83);
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-between;
             }
 
             .myMenu {
@@ -27,7 +26,8 @@
             .card {
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
                 transition: 0.3s;
-                width: 40%
+                width: 40%;
+                width: 47vw
             }
 
             .card:hover {
@@ -36,7 +36,6 @@
 
             .container {
                 padding: 2px 16px;
-                align: left
 
             }
         </style>
@@ -141,7 +140,7 @@
 
     <footer style="background-color: white; margin-top: 100px">
         <header class="linha-1"></header>
-        <img class="img-rodape" src="IMG/logo_verticalpng.png" style="height: 200px; margin-left: 43%">
+        <img class="img-rodape" src="IMG/logo_verticalpng.png" style="height: 200px; margin-left: 46%">
         <p class="copyright" style="text-align: center;">&copy; Copyright Help Friend - 2022</p>
     </footer>
 </body>
