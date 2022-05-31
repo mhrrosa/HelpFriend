@@ -7,6 +7,7 @@
             }
 
             .w3-code {
+                margin-left: 6.5vw;
                 border-left: 10px solid rgb(197, 146, 83);
                 display: flex;
                 flex-wrap: wrap;
@@ -24,10 +25,11 @@
                 margin-bottom: 25px
             }
             .card {
+                align: center;
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
                 transition: 0.3s;
-                width: 40%;
-                width: 47vw
+                margin-left: 0.1vw;
+                width: 40vw
             }
 
             .card:hover {
