@@ -80,6 +80,7 @@
                             <h4><b><b>Porte: </b><?php echo $porte ?></b></h4> 
                             <h4><b><b>Ano Nascimento: </b><?php echo $Ano_Nascimento ?></b></h4> 
                             <h4><b><b>Raça: </b><?php echo $raca ?></b></h4>
+                            <button class = "btn">Reservar</button>
                         </div>
                     </div>
 

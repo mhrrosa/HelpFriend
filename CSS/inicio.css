@@ -56,7 +56,7 @@ body {
 /* linha horizontal de divisao */
 .linha-divisao {
     width: 100%;
-    background-color: rgb(197, 146, 83);
+    background-color: #c59253;
     height: 10px;
 }
 
@@ -74,9 +74,10 @@ body {
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+    transition: 0.15s;
     margin-left: 0.1vw;
-    width: 40vw
+    width: 40vw;
+    padding-bottom: 10px;
 }
 
 .card:hover {
@@ -88,9 +89,24 @@ body {
 
 }
 
-
-
-
+.btn {
+    -webkit-border-radius: 9;
+    -moz-border-radius: 9;
+    border-radius: 9px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 13px;
+    background: #c59253;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+  }
+  
+  .btn:hover {
+    cursor: pointer;
+    background: #99652b;
+    text-decoration: none;
+  }
 
 /* rodapé */
 footer {
