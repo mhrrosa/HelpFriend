@@ -43,7 +43,7 @@
         <!-- FORMULÁRIO -->
         <header>
                 <div class="formcadastro">
-                    <form id="cadastro" action="cadastroFuncionario_exe.php" method="post" onsubmit="return check(this.form)">
+                    <form id="cadastro" action="cadastroAdotante_exe.php" method="post" onsubmit="return check(this.form)">
                         <div class="form">
                             <label class="titulo-form" for="text"><b>CADASTRO ADOTANTE</b></label>
                             <label for="name"> Nome 

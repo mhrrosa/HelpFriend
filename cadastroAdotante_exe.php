@@ -54,7 +54,7 @@
                             $Bairro = $_POST['bairro'];
                             $Cidade = $_POST['cidade'];
                             $Estado = $_POST['estado'];
-                            $Logradouro = $_POST['bairro'];
+                            $Logradouro = $_POST['logradouro'];
                             $Numero = $_POST['numero'];
                             $Complemento = $_POST['complemento'];
 
