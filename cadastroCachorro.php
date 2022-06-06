@@ -38,7 +38,7 @@
         <header class="linha-divisao"></header>
         <!-- FORMULÁRIO -->
         <div class="formcadastro">
-            <form id="cadastro" action="cadastroCachorro_exe.php" method="post" onsubmit="return check(this.form)">
+            <form id="cadastro" action="cadastroCachorro_exe.php" enctype="multipart/form-data" method="post">
                 <div class="form">
                     <label class="titulo-form" for="text"><b>CADASTRO DE CACHORRO</b></label>
                     <label for="name"> Nome 
@@ -123,27 +123,25 @@
                     <p>
                         <label class="w3-text-deep-brown"><b>Imagem:</b></label>
                         <label class="w3-btn w3-theme"><b>Selecione uma imagem</b>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
                         <input type="file" style="display:none;background-color:brown;" id="Imagem" name="Imagem" accept="imagem/*" onchange="previewImagem();"></label>
                     </p>
-                    <img style="width:20vw;height:20vw;">
+                    <img id="imgCamp" style="width:20vw;height:20vw;">
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
                     <script>
-                        
                         function previewImagem(){
-                            debugger
                             var imagem = document.querySelector('input[name=Imagem]').files[0];
-                            var preview = document.querySelector('img');
-                            console.log(imagem)
+                            var preview = document.getElementById('imgCamp');
 
                             var reader = new FileReader();
-                            reader.onloaded = function() {
-                                preview.src = reader.result;
+                            reader.onload = function(e){
+                                preview.src = e.target.result;
                             }
-                            if(!imagem){
-                                preview.src = "";
-                            }else{
+                            if(imagem){
                                 reader.readAsDataURL(imagem);
+                            }else{
+                                preview.src = "";
                             }
                         }
                     </script>

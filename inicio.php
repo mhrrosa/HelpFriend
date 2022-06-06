@@ -71,6 +71,9 @@
                             $porte      = $row['Porte'];
                             $Ano_Nascimento  = $row['Ano_nascimento'];
                             $raca  = $row['Raca'];
+                            $foto = base64_decode($row['FotoBin']);
+                            echo $foto;
+
                 ?>
                             
                     <div class="card">
@@ -80,6 +83,7 @@
                             <h4><b><b>Porte: </b><?php echo $porte ?></b></h4> 
                             <h4><b><b>Ano Nascimento: </b><?php echo $Ano_Nascimento ?></b></h4> 
                             <h4><b><b>Raça: </b><?php echo $raca ?></b></h4>
+                            <img src='<?php echo $foto ?>'>
                             <button class = "btn">Reservar</button>
                         </div>
                     </div>

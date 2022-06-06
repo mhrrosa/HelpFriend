@@ -40,34 +40,31 @@
     
                 <h1>Registro de Cachorros</h1>
                 <?php require 'conectaBD.php'; ?>
-                
+
                 <?php
                     $nome    = $_POST['nome'];
                     $ano = $_POST['ano'];
                     $porte = $_POST['porte'];
                     $raca = $_POST['raca'];
                     $id_instituicao = $_POST['id_instituicao'];
-                    switch ($_FILES['Imagem']['error']) {
-                        case UPLOAD_ERR_OK:
-                            break;
-                        case UPLOAD_ERR_NO_FILE:
-                            throw new RuntimeException('No file sent.');
-                        case UPLOAD_ERR_INI_SIZE:
-                        case UPLOAD_ERR_FORM_SIZE:
-                            throw new RuntimeException('Exceeded filesize limit.');
-                        default:
-                            throw new RuntimeException('Unknown errors.');
-                    }
-                    
 
-                    
-                    if ($_FILES['Imagem']['size'] == 0) { // Não recebeu uma imagem binária
-                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'nao', 'sim')";
-                    } else {  
-                        $imagem = addslashes(file_get_contents($_FILES['Imagem']['tmp_name']));                             // Recebeu uma imagem binária
+                    $name = $_FILES['Imagem']['name'];
+                    $target_dir = "IMG/";
+                    $target_file = $target_dir . basename($_FILES["Imagem"]["name"]);
+                    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                    $extensions_arr = array("jpg","jpeg","png","gif");
+                
+                    if( in_array($imageFileType,$extensions_arr) ){
+
+                    // Upload do arquivo
+                    if(move_uploaded_file($_FILES['Imagem']['tmp_name'],$target_dir.$name)){
+                        // Convertendo para base 64
+                        $image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
+                        $imagem = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+                        // Inserindo 
                         $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto, Imagem) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'nao', 'sim', '$imagem')";
+                        } 
                     }
-
 
                     // Cria conexão
                     $conn = mysqli_connect($servername, $username, $password, $database);
@@ -93,7 +90,9 @@
                     echo "</div>";
                     mysqli_close($conn);
                 ?>
-            </div>
+     
+     </div>
         </div>
 	</body>
 </html>
+
