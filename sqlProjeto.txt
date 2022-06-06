@@ -70,7 +70,7 @@ CREATE TABLE `cachorro` (
   `Adotado` varchar(3) NOT NULL,
   `Apto` varchar(3) NOT NULL,
   `Id_Instituicao` int NOT NULL,
-  `Imagem` binary(1) DEFAULT NULL,
+  `Imagem` mediumblob NULL,
   PRIMARY KEY (`Id`),
   KEY `cachorro_FK` (`Id_Instituicao`),
   KEY `raca_fk` (`Id_Raca`),

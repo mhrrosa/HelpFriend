@@ -120,6 +120,33 @@
                     <label for="name"> ID Instituição 
                             <input type="text" name="id_instituicao"required>
                     </label>
+                    <p>
+                        <label class="w3-text-deep-brown"><b>Imagem:</b></label>
+                        <label class="w3-btn w3-theme"><b>Selecione uma imagem</b>
+                        <input type="file" style="display:none;background-color:brown;" id="Imagem" name="Imagem" accept="imagem/*" onchange="previewImagem();"></label>
+                    </p>
+                    <img style="width:20vw;height:20vw;">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+                    <script>
+                        
+                        function previewImagem(){
+                            debugger
+                            var imagem = document.querySelector('input[name=Imagem]').files[0];
+                            var preview = document.querySelector('img');
+                            console.log(imagem)
+
+                            var reader = new FileReader();
+                            reader.onloaded = function() {
+                                preview.src = reader.result;
+                            }
+                            if(!imagem){
+                                preview.src = "";
+                            }else{
+                                reader.readAsDataURL(imagem);
+                            }
+                        }
+                    </script>
                     <label for="submit"> 
                             <button class="cadastrar" type="submit"><b>Cadastrar</b></button>
                     </label>

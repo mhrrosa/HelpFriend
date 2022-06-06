@@ -47,8 +47,27 @@
                     $porte = $_POST['porte'];
                     $raca = $_POST['raca'];
                     $id_instituicao = $_POST['id_instituicao'];
+                    switch ($_FILES['Imagem']['error']) {
+                        case UPLOAD_ERR_OK:
+                            break;
+                        case UPLOAD_ERR_NO_FILE:
+                            throw new RuntimeException('No file sent.');
+                        case UPLOAD_ERR_INI_SIZE:
+                        case UPLOAD_ERR_FORM_SIZE:
+                            throw new RuntimeException('Exceeded filesize limit.');
+                        default:
+                            throw new RuntimeException('Unknown errors.');
+                    }
+                    
 
-                    $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'nao', 'sim')";
+                    
+                    if ($_FILES['Imagem']['size'] == 0) { // Não recebeu uma imagem binária
+                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'nao', 'sim')";
+                    } else {  
+                        $imagem = addslashes(file_get_contents($_FILES['Imagem']['tmp_name']));                             // Recebeu uma imagem binária
+                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto, Imagem) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'nao', 'sim', '$imagem')";
+                    }
+
 
                     // Cria conexão
                     $conn = mysqli_connect($servername, $username, $password, $database);
