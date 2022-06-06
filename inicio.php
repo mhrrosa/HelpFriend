@@ -84,13 +84,13 @@
                         </div>
                     </div>
 
-                    <?php
+                <?php
                         }
                     } else {
                         //ENCERRA CONEXÃO COM O BANCO DE DADOS
                         mysqli_close($conn);
                     }
-                    ?>
+                ?>
             </div>
         </div>
         <!-- RODAPÉ -->

@@ -75,7 +75,9 @@
                             <option value="Grande">Grande</option>
                         </select>
                     </label>
-
+                    <label for="name"> Raça
+                        <select name="raca" required>
+                            <option class="indicacao-option" value="">Selecione a raça desejada:</option>
                     <?php		
                         $id=$_GET['id'];
 
@@ -101,20 +103,19 @@
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $id = $row['Id'];
                                     $nome = $row['Nome'];
-                                }
-                            }
-                        }
-            
-                            
                     ?>
 
-
-                    <label for="name"> Raça
-                        <select name="raca" required>
-                            <option class="indicacao-option" value="">Selecione a raça desejada:</option>
                             <option value="<?php echo $id ?>"><?php echo $nome ?></option>
-                            <option value="<?php echo $id ?>"><?php echo $nome ?></option>
-                        </select>
+                        
+                    <?php
+                                }
+                            } else {
+                                //ENCERRA CONEXÃO COM O BANCO DE DADOS
+                                mysqli_close($conn);
+                            }
+                        }
+                    ?>
+                    </select>
                     </label>
                     <label for="name"> ID Instituição 
                             <input type="text" name="id_instituicao"required>

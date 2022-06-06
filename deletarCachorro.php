@@ -77,7 +77,7 @@
 						$id=$_GET['id'];
 						
 						// Faz Select na Base de Dados
-						$sql = "SELECT Id, Nome, Raca, Ano_Nascimento, Porte FROM cachorro WHERE Id = $id";
+						$sql = "SELECT c.Id, c.Nome, r.Nome as Raca, c.Ano_nascimento, c.Porte FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Id = $id";
 						echo "<div class='w3-responsive w3-card-4'>"; //Inicio form
 						if ($result = mysqli_query($conn, $sql)) {
 								if (mysqli_num_rows($result) > 0) {
@@ -96,7 +96,7 @@
 											<p>
 											<label class="label_exclusao"><b>Raça: </b><?php echo $row['Raca']; ?></label></p>
 											<p>
-											<label class="label_exclusao"><b>Ano de Nascimento: </b><?php echo $row['Ano_Nascimento'] ?></label></p>
+											<label class="label_exclusao"><b>Ano de Nascimento: </b><?php echo $row['Ano_nascimento'] ?></label></p>
 											<p>
 											<label class="label_exclusao"><b>Porte: </b><?php echo $row['Porte']; ?></label></p>
 											<p>

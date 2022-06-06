@@ -56,7 +56,7 @@
 
                 // Faz Select na Base de Dados
 
-                $sql = "SELECT Id, Nome, Ano_Nascimento, Porte, Raca, Id_Instituicao from cachorro where Id = $id";
+                $sql = "SELECT c.Id, c.Nome, r.Nome as Raca, c.Ano_nascimento, c.Porte FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Id = $id";
 
         
 
@@ -66,9 +66,8 @@
                         $id_cachorro = $row['Id'];
                         $nome      = $row['Nome'];
                         $porte      = $row['Porte'];
-                        $Ano_Nascimento  = $row['Ano_Nascimento'];
+                        $Ano_Nascimento  = $row['Ano_nascimento'];
                         $raca  = $row['Raca'];
-                        $id_instituicao  = $row['Id_Instituicao'];
 
                     }
                 }
@@ -113,23 +112,29 @@
                                 <option value="Grande"<?php echo $porte=='Selecione'?'selected':'';?> >Grande</option>
                             </select>
                         </label>
-                        <label for="name"> Raça <span></span>
-                            <select name="raca">
-                                <option value= " <?php echo $raca; ?>">Raça Atual - <?php echo $raca; ?></option>
-                                <option value="Shih Tzu"<?php echo $raca=='Selecione'?'selected':'';?> >Shih Tzu</option>
-                                <option value="Yorkshire"<?php echo $raca=='Selecione'?'selected':'';?> >Yorkshire</option>
-                                <option value="Buldogue frances"<?php echo $raca=='Selecione'?'selected':'';?> >Buldogue frances</option>
-                                <option value="Maltes"<?php echo $raca=='Selecione'?'selected':'';?> >Maltes</option>
-                                <option value="Golden Retriever"<?php echo $raca=='Selecione'?'selected':'';?> > Golden Retriever</option>
-                                <option value="Labrador Retriever"<?php echo $raca=='Selecione'?'selected':'';?> >Labrador Retriever</option>
-                                <option value="Pug"<?php echo $raca=='Selecione'?'selected':'';?> >Pug</option>
-                                <option value="Pinscher"<?php echo $raca=='Selecione'?'selected':'';?> >Pinscher</option>
-                                <option value="Schnauzer"<?php echo $raca=='Selecione'?'selected':'';?> >Schnauzer</option>
-                                <option value="Beagle"<?php echo $raca=='Selecione'?'selected':'';?> >Beagle</option>
-                                <option value="Border Collie"<?php echo $raca=='Selecione'?'selected':'';?> >Border Collie</option>                                
-                                <option value="Raca nao definida"<?php echo $raca=='Selecione'?'selected':'';?> >Raca nao definida</option>    
-                            </select>
-                        </label>
+
+                        <label for="name"> Raça
+                        <select name="raca" required>
+                        <option value= " <?php echo $raca; ?>">Raça Atual - <?php echo $raca; ?></option>
+                    <?php		
+                        $sql2 = "SELECT Id, Nome from raca";
+
+                        if ($result = mysqli_query($conn, $sql2)) {
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $id = $row['Id'];
+                                    $nome = $row['Nome'];
+                    ?>
+
+                            <option value="<?php echo $id ?>"><?php echo $nome ?></option>
+                        <?php
+                                    }
+                                } else {
+                                    //ENCERRA CONEXÃO COM O BANCO DE DADOS
+                                    mysqli_close($conn);
+                                }
+                            }
+                        ?>
                         <label for="name">
                                 <input type="hidden" name="id_instituicao" value="<?php echo $id_instituicao; ?>">
                         </label>

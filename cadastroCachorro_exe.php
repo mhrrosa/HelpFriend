@@ -48,7 +48,7 @@
                     $raca = $_POST['raca'];
                     $id_instituicao = $_POST['id_instituicao'];
 
-                    $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte,Raca,Id_Instituicao) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao')";
+                    $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'nao', 'sim')";
 
                     // Cria conexão
                     $conn = mysqli_connect($servername, $username, $password, $database);
