@@ -69,7 +69,7 @@
                             $id_cachorro = $row['Id'];
                             $nome      = $row['Nome'];
                             $porte      = $row['Porte'];
-                            $Ano_Nascimento  = $row['Ano_Nascimento'];
+                            $Ano_Nascimento  = $row['Ano_nascimento'];
                             $raca  = $row['Raca'];
                 ?>
                             
