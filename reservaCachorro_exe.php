@@ -1,0 +1,81 @@
+<html>
+	<head>
+	  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	  <link rel="stylesheet" type="text/css" href="CSS/reservar.css"/>
+      <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
+      <title>Reserva de Cachorro - Help Friend</title>
+	</head>
+    <header class="cabecalho">
+            <div>
+				<img class="logo" src="IMG/logopng.png"/>
+            </div>
+            <div class="botao-cabecalho">
+                <ul>
+                    <li><a href="">
+                            <h3>MENU</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <h3>SOBRE</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <h3>CONTATO</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+    </header>
+    <header class="linha-divisao"></header>
+    <body>
+        <div class="w3-main w3-container" style="margin-left:10px;margin-top:117px;">
+
+            <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+                <h1 class="w3-xxlarge">Reserva de Cachorro</h1>
+
+                    <p class="w3-large">
+                        <div class="w3-code cssHigh notranslate">
+                            <?php require 'conectaBD.php'; ?>
+                            <?php
+                                $id =  $_POST['Id'];
+                                $nome = $_POST['nome'];
+                                $senha = $_POST['Senha'];
+
+                                $conn = mysqli_connect($servername, $username, $password, $database);
+
+                                // Verifica conexão 
+                                if (!$conn) {
+                                    die("Falha na conexão com o Banco de Dados: " . mysqli_connect_error());
+                                }
+
+                                // Configura para trabalhar com caracteres acentuados do português
+                                mysqli_query($conn, "SET NAMES 'utf8'");
+                                mysqli_query($conn, 'SET character_set_connection=utf8');
+                                mysqli_query($conn, 'SET character_set_client=utf8');
+                                mysqli_query($conn, 'SET character_set_results=utf8');
+
+                                $sql = "SELECT FROM adotante WHERE nome == $nome AND Senha == $senha";
+                                // Faz o Upadate na Base de Dados
+
+                                if ($result = mysqli_query($conn, $sql)) {
+                                    echo "Cachorro Reservado";
+                                } else {
+                                    
+                                    echo "Erro executando a atualização: " . mysqli_error($conn);
+                                }
+                                echo "</div>";
+                                mysqli_close($conn);  //Encerra conexao com o BD
+                            ?>
+                        </div>
+                    </p>
+            </div>
+        </div>
+        <footer>
+            <header class="linha-divisao"></header>
+            <img class="img-rodape" src="IMG/logo_verticalpng.png">
+            <p class="copyright">&copy; Copyright Help Friend - 2022</p>
+        </footer>
+    </body>
+</html>
