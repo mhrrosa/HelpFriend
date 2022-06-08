@@ -57,7 +57,7 @@
 
                     // Faz Select na Base de Dados
 
-                    $sql = "SELECT Id, email, Senha from adotante where Id = $id";
+                    $sql = "SELECT Id, email, Nome, Senha from adotante where Id = $id";
 
                     if ($result = mysqli_query($conn, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
@@ -73,7 +73,7 @@
                     <form id="cadastro" action="reservaCachorro_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
                     <input type="hidden" id="Id" name="Id" value="<?php echo $id; ?>">  
                     <div class="form">
-                            <label for="text" class="titulo-form" ><b>CONFIRMAÇÃO DE CADASTRO</b></label>
+                            <label for="text" class="titulo-form" ><b>CONFIRMAÇÃO DE LOGIN</b></label>
                             <label for="name"> Nome 
                                 <input type="text" name="nome" value="<?php echo $nome; ?>">
                             </label>
@@ -94,7 +94,6 @@
                     echo "</div>";
                     //ENCERRA CONEXÃO COM O BANCO DE DADOS
                     mysqli_close($conn); //Encerra conexao com o BD
-
                 ?>
 
             </div>

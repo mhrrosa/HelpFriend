@@ -41,7 +41,7 @@
                             <?php
                                 $id =  $_POST['Id'];
                                 $nome = $_POST['nome'];
-                                $senha = $_POST['Senha'];
+                                $senha = $_POST['senha'];
 
                                 $conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -56,13 +56,16 @@
                                 mysqli_query($conn, 'SET character_set_client=utf8');
                                 mysqli_query($conn, 'SET character_set_results=utf8');
 
-                                $sql = "SELECT FROM adotante WHERE nome == $nome AND Senha == $senha";
+                                $sql = "SELECT Id FROM adotante WHERE Nome = '$nome' AND Senha = '$senha'";
+                                $update = "INSERT into reserva(id_adotante, id_cachorro, status) values ('$id','$id_cachorro','Reservado')"
                                 // Faz o Upadate na Base de Dados
-
-                                if ($result = mysqli_query($conn, $sql)) {
+                                $result = mysqli_query($conn, $sql);
+                                if (mysqli_num_rows($result) > 0) {
                                     echo "Cachorro Reservado";
+                                } else if (mysqli_num_rows($result) == 0){
+                                    echo "O cadastro não existe no banco";
+
                                 } else {
-                                    
                                     echo "Erro executando a atualização: " . mysqli_error($conn);
                                 }
                                 echo "</div>";
