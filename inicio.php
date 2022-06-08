@@ -40,7 +40,7 @@
         <div class="w3-main w3-container">
 
             <div class="w3-panel w3-padding-large w3-card-4 w3-light-dark">
-                <h1 class="w3-xxlarge"style="text-align: center">Seu novo amigo pode estar aqui</h1>
+                <h1 class="w3-xxlarge"style="text-align: center">Seu novo melhor amigo está aqui</h1>
 
                 <p class="w3-large">
                 <div class="w3-code">  
@@ -85,7 +85,9 @@
                             <h4><b><b>Ano Nascimento: </b><?php echo $Ano_Nascimento ?></b></h4> 
                             <h4><b><b>Raça: </b><?php echo $raca ?></b></h4>
                             <img class="fotoConvertida" src="data:image/png;base64,<?php echo $foto ?>">
-                            <button class = "btn">Reservar</button>
+                            <a href='reservaCachorro.php?id=<?php echo $id_cachorro; ?>'>
+                                <button class = "botao-reserva">Reservar</button>
+                            </a>
                         </div>
                     </div>
 
