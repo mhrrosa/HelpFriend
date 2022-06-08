@@ -120,6 +120,14 @@
                     <label for="name"> ID Instituição 
                             <input type="text" name="id_instituicao"required>
                     </label>
+                    <label class="switch">
+                        <input name = "apto" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <label class="switch">
+                        <input name = "adotado" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
                     <p>
                         <label class="w3-text-deep-brown"><b>Imagem:</b></label>
                         <label class="w3-btn w3-theme"><b>Selecione uma imagem</b>
