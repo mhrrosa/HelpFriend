@@ -84,7 +84,6 @@
                     echo "<div class='w3-responsive w3-card-4'>";
                     if ($result = mysqli_query($conn, $sql)) {
                         echo "Um registro adicionado!";
-                        echo $image_base64;
                     } else {
                         echo "Erro executando INSERT: " . mysqli_error($conn);
                     }
