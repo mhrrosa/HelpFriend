@@ -74,13 +74,11 @@
                                         $imagem = 'data:image/'.$imageFileType.';base64,'.$image_base64;
                                         // Inserindo 
                                         $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Id_Raca = '$raca', Adotado = 'nao', Apto = 'sim', Imagem = '$image_base64' WHERE Id = '$id'";
-                                    
                                     }
                                 } else {
                                     $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Id_Raca = '$raca', Adotado = 'nao', Apto = 'sim' WHERE Id = '$id'";
                                 }
                                 
-
                                 // Faz o Upadate na Base de Dados
 
                                 if ($result = mysqli_query($conn, $sql)) {
