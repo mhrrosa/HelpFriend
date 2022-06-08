@@ -56,7 +56,7 @@
 
                 // Faz Select na Base de Dados
 
-                $sql = "SELECT c.Id, c.Nome, r.Nome as Raca, c.Ano_nascimento, c.Porte FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Id = $id";
+                $sql = "SELECT c.Id, c.Nome, r.Nome as Raca, c.Id_Raca as id_raca, c.Ano_nascimento, c.Porte, c.Imagem FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Id = $id";
 
         
 
@@ -68,6 +68,8 @@
                         $porte      = $row['Porte'];
                         $Ano_Nascimento  = $row['Ano_nascimento'];
                         $raca  = $row['Raca'];
+                        $foto = $row['Imagem'];
+                        $id_raca = $row['id_raca'];
 
                     }
                 }
@@ -115,7 +117,7 @@
 
                         <label for="name"> Raça
                         <select name="raca" required>
-                        <option value= " <?php echo $raca; ?>">Raça Atual - <?php echo $raca; ?></option>
+                        <option value= " <?php echo $id_raca; ?>">Raça Atual - <?php echo $raca; ?></option>
                     <?php		
                         $sql2 = "SELECT Id, Nome from raca";
 
@@ -138,6 +140,31 @@
                         <label for="name">
                                 <input type="hidden" name="id_instituicao" value="<?php echo $id_instituicao; ?>">
                         </label>
+                        <p>
+                        <label class="w3-text-deep-brown"><b>Imagem:</b></label>
+                        <label class="w3-btn w3-theme"><b>Selecione uma imagem</b>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
+                        <input type="file" style="display:none;background-color:brown;" id="Imagem" name="Imagem" accept="imagem/*" onchange="previewImagem();"></label>
+                    </p>
+                    <img id="imgCamp" src="data:image/png;base64,<?php echo $foto ?>" style="width:20vw;height:20vw;">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+                    <script>
+                        function previewImagem(){
+                            var imagem = document.querySelector('input[name=Imagem]').files[0];
+                            var preview = document.getElementById('imgCamp');
+
+                            var reader = new FileReader();
+                            reader.onload = function(e){
+                                preview.src = e.target.result;
+                            }
+                            if(imagem){
+                                reader.readAsDataURL(imagem);
+                            }else{
+                                preview.src = "";
+                            }
+                        }
+                    </script>
                         <label for="submit"> 
                                 <button type="submit" style="max-width: 100px"><b>Atualizar</b></button>
                         </label>

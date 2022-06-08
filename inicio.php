@@ -71,8 +71,6 @@
                             $porte      = $row['Porte'];
                             $Ano_Nascimento  = $row['Ano_nascimento'];
                             $raca  = $row['Raca'];
-                            // for ($i=0; $i < ceil(strlen($row['Imagem'])/256); $i++)
-                            //     $foto = $foto . base64_decode(substr($row['Imagem'],$i*256,256));
                             $foto = $row['Imagem'];
                 ?>
 

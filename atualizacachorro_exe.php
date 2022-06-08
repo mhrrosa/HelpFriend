@@ -33,7 +33,7 @@
         <div class="w3-main w3-container" style="margin-left:10px;margin-top:117px;">
 
             <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
-                <h1 class="w3-xxlarge">Exclusão de Cachorros</h1>
+                <h1 class="w3-xxlarge">Atualização de Cachorro</h1>
 
                     <p class="w3-large">
                         <div class="w3-code cssHigh notranslate">
@@ -58,15 +58,34 @@
                                 mysqli_query($conn, 'SET character_set_connection=utf8');
                                 mysqli_query($conn, 'SET character_set_client=utf8');
                                 mysqli_query($conn, 'SET character_set_results=utf8');
+
+                                $name = $_FILES['Imagem']['name'];
+                                $target_dir = "IMG/";
+                                $target_file = $target_dir . basename($_FILES["Imagem"]["name"]);
+                                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                                $extensions_arr = array("jpg","jpeg","png","gif");
+                            
+                                if( in_array($imageFileType,$extensions_arr) ){
+
+                                // Upload do arquivo
+                                    if(move_uploaded_file($_FILES['Imagem']['tmp_name'],$target_dir.$name)){
+                                        // Convertendo para base 64
+                                        $image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
+                                        $imagem = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+                                        // Inserindo 
+                                        $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Id_Raca = '$raca', Adotado = 'nao', Apto = 'sim', Imagem = '$image_base64' WHERE Id = '$id'";
+                                    
+                                    }
+                                } else {
+                                    $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Id_Raca = '$raca', Adotado = 'nao', Apto = 'sim' WHERE Id = '$id'";
+                                }
                                 
-                                $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Id_Raca = '$raca' WHERE Id = '$id'";
-                                
+
                                 // Faz o Upadate na Base de Dados
 
                                 if ($result = mysqli_query($conn, $sql)) {
                                     echo "Um registro atualizado!";
                                 } else {
-                                    echo($raca);
                                     echo "Erro executando a atualização: " . mysqli_error($conn);
                                 }
                                 echo "</div>";
