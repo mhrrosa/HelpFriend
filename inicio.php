@@ -76,7 +76,6 @@
                             $foto = $row['Imagem'];
                 ?>
 
-                            
                     <div class="card">
                         <div class="container">
                             <h4><b><b>Id: </b><?php echo $id_cachorro ?></b></h4> 
@@ -85,8 +84,8 @@
                             <h4><b><b>Ano Nascimento: </b><?php echo $Ano_Nascimento ?></b></h4> 
                             <h4><b><b>Raça: </b><?php echo $raca ?></b></h4>
                             <img class="fotoConvertida" src="data:image/png;base64,<?php echo $foto ?>">
-                            <a href='reservaCachorro.php?id=<?php echo $id_cachorro; ?>'>
-                                <button class = "botao-reserva">Reservar</button>
+                            <a href='reservaCachorro.php?id=<?php echo $id_cachorro ?>'>
+                                <button class="botao-reserva">Reservar</button>
                             </a>
                         </div>
                     </div>
