@@ -102,11 +102,17 @@ body {
     border: none;
   }
   
-  .btn:hover {
+.dbtn:hover {
     cursor: pointer;
     background: #99652b;
     text-decoration: none;
-  }
+}
+ 
+.fotoConvertida{
+    width: auto;
+    max-height: 20%;
+    object-fit: contain;
+}
 
 /* rodapé */
 footer {

@@ -61,7 +61,7 @@
                     mysqli_query($conn,'SET character_set_results=utf8');
 
                     // Faz Select na Base de Dados
-                $sql = "SELECT c.id as Id, c.Nome as Nome, r.Nome as Raca, c.Ano_nascimento as Ano_nascimento, c.Porte as Porte, c.Imagem as Imagem FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Apto = 'sim' and Adotado = 'nao'";
+                    $sql = "SELECT c.id as Id, c.Nome as Nome, r.Nome as Raca, c.Ano_nascimento as Ano_nascimento, c.Porte as Porte, c.Imagem as Imagem FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Apto = 'sim' and Adotado = 'nao'";
 
                     $result = mysqli_query($conn, $sql);
                     if (mysqli_num_rows($result) > 0) {
@@ -71,10 +71,11 @@
                             $porte      = $row['Porte'];
                             $Ano_Nascimento  = $row['Ano_nascimento'];
                             $raca  = $row['Raca'];
-                            $foto = base64_decode($row['FotoBin']);
-                            echo $foto;
-
+                            // for ($i=0; $i < ceil(strlen($row['Imagem'])/256); $i++)
+                            //     $foto = $foto . base64_decode(substr($row['Imagem'],$i*256,256));
+                            $foto = $row['Imagem'];
                 ?>
+
                             
                     <div class="card">
                         <div class="container">
@@ -83,7 +84,7 @@
                             <h4><b><b>Porte: </b><?php echo $porte ?></b></h4> 
                             <h4><b><b>Ano Nascimento: </b><?php echo $Ano_Nascimento ?></b></h4> 
                             <h4><b><b>Raça: </b><?php echo $raca ?></b></h4>
-                            <img src='<?php echo $foto ?>'>
+                            <img class="fotoConvertida" src="data:image/png;base64,<?php echo $foto ?>">
                             <button class = "btn">Reservar</button>
                         </div>
                     </div>

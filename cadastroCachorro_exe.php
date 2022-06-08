@@ -62,7 +62,7 @@
                         $image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
                         $imagem = 'data:image/'.$imageFileType.';base64,'.$image_base64;
                         // Inserindo 
-                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto, Imagem) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'nao', 'sim', '$imagem')";
+                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto, Imagem) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'nao', 'sim', '$image_base64')";
                         } 
                     }
 
@@ -84,6 +84,7 @@
                     echo "<div class='w3-responsive w3-card-4'>";
                     if ($result = mysqli_query($conn, $sql)) {
                         echo "Um registro adicionado!";
+                        echo $image_base64;
                     } else {
                         echo "Erro executando INSERT: " . mysqli_error($conn);
                     }
