@@ -57,19 +57,28 @@
                                 mysqli_query($conn, 'SET character_set_results=utf8');
 
                                 $sql = "SELECT Id FROM adotante WHERE Nome = '$nome' AND Senha = '$senha'";
+                                $result = mysqli_query($conn, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $id_adotante = $row['Id'];
+                                 
                                 $reservar = "INSERT into reserva(id_adotante, id_cachorro, status) values ('$id_adotante','$id_cachorro','Reservado')";
                                 $confirmaReserva = "UPDATE cachorro SET Apto = '' WHERE Id = '$id_cahcorro'";
-                               
+                                    }
+                                }
                                 // Faz o Upadate na Base de Dados
-                                $result = mysqli_query($conn, $sql);
+                                
                                 if (mysqli_num_rows($result) > 0) {
                                     $result2 = mysqli_query($conn, $reservar);
                                     $result3 = mysqli_query($conn, $confirmaReserva);
                                     echo "Cachorro Reservado";
+                                    if(!$conn){
+                                        echo "Erro executando a reserva: " . mysqli_error($conn);
+                                    }
                                 } else if (mysqli_num_rows($result) == 0){
                                     echo "O cadastro não existe no banco";
                                 } else {
-                                    echo "Erro executando a atualização: " . mysqli_error($conn);
+                                    echo "Erro executando a reserva: " . mysqli_error($conn);
                                 }
                                 echo "</div>";
                                 mysqli_close($conn);  //Encerra conexao com o BD
