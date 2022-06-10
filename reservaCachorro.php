@@ -81,7 +81,10 @@
                                 <input type="password" name="senha" value="<?php echo $senha; ?>">
                             </label>
                             <label for="submit"> 
-                                <button class="botao-confirma" type="submit" style="max-width: 100px"><b>Confirmar</b></button>
+                                <button class="botao-confirma" type="submit" style="max-width: 125px"><b>Confirmar</b></button>
+                            </label>
+                            <label class="label2" > Não possui cadastro?
+                                <a class="a-cadastro" href="cadastroAdotante.php" for="submit">Crie uma!</a>
                             </label>
                         </div>
                     </form>
@@ -95,13 +98,6 @@
                     //ENCERRA CONEXÃO COM O BANCO DE DADOS
                     mysqli_close($conn); //Encerra conexao com o BD
                 ?>
-                </div>
-                <div>
-                    <label> Não possui cadastro?
-                        <a href="cadastroAdotante.php" for="submit">
-                            <button type="submit" style="max-width: 100px"><b>Cadastrar</b></button>
-                        </a>
-                    </label>
                 </div>
             </div>
         </div>
