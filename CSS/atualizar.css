@@ -87,7 +87,7 @@ body {
 
 label {
   text-align: center;
-  color: rgb(197, 146, 83);
+  color: #c59253;
   flex-direction: column;
   display: flex;
   padding: 0.5em 0.5em 0.5em 0.5em;

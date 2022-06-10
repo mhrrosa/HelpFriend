@@ -45,6 +45,8 @@
                                 $ano = $_POST['ano'];
                                 $porte = $_POST['porte'];
                                 $raca = $_POST['raca'];
+                                $apto = $_POST['apto'];
+                                $adotado = $_POST['adotado'];
 
                                 $conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -73,10 +75,10 @@
                                         $image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
                                         $imagem = 'data:image/'.$imageFileType.';base64,'.$image_base64;
                                         // Inserindo 
-                                        $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Id_Raca = '$raca', Adotado = 'nao', Apto = 'sim', Imagem = '$image_base64' WHERE Id = '$id'";
+                                        $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Id_Raca = '$raca', Adotado = '$adotado', Apto = '$apto', Imagem = '$image_base64' WHERE Id = '$id'";
                                     }
                                 } else {
-                                    $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Id_Raca = '$raca', Adotado = 'nao', Apto = 'sim' WHERE Id = '$id'";
+                                    $sql = "UPDATE cachorro SET Nome = '$nome', Ano_Nascimento = '$ano', Porte = '$porte' , Id_Raca = '$raca', Adotado = '$adotado', Apto = '$apto' WHERE Id = '$id'";
                                 }
                                 
                                 // Faz o Upadate na Base de Dados
