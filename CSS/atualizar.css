@@ -151,18 +151,38 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.botao-atualiza {
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 13px;
+  background-color: #c59253; 
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  max-width: 100px
+}
+
+.botao-atualiza:hover {
+  cursor: pointer;
+  background: #99652b;
+  text-decoration: none;
+}
   
 /* rodapé */
 footer {
-    background-color: white;
-    margin-bottom: 0px;
+  background-color: white;
+  margin-bottom: 0px;
 }
 
 /* imagem rodapé */
 .img-rodape {
-    display: block;
-    height: 200px;
-    margin: 20px auto 20px auto;
+  display: block;
+  height: 200px;
+  margin: 20px auto 20px auto;
 }
 
 /* texto rodapé */
