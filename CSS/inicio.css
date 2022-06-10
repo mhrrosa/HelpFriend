@@ -88,7 +88,9 @@ body {
 }
 
 .fotoConvertida {
-    width: 100px;
+    width: 25vw;
+    height: auto;
+    margin: 3% 10%;
 }
 
 .botao-reserva {
