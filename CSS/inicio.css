@@ -86,7 +86,10 @@ body {
 
 .container {
     padding: 2px 16px;
+}
 
+.sub-container {
+    display: flex;
 }
 
 .botao-reserva {
@@ -96,11 +99,11 @@ body {
     font-family: Arial;
     color: #ffffff;
     font-size: 13px;
-    background: #c59253;
+    background-color: #c59253 !important; 
     padding: 10px 20px 10px 20px;
     text-decoration: none;
     border: none;
-  }
+}
   
 .botao-reserva:hover {
     cursor: pointer;

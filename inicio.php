@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <head>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" type="text/css" href="CSS/inicio.css">
+        <link rel="stylesheet" type="text/css" href="CSS/inicio.css"/>
         <title>Help Friend</title>
         <link rel="icon" type="image/jpg" href="IMG/logo_icone.jpg"/>
     </head>
@@ -76,12 +76,16 @@
 
                     <div class="card">
                         <div class="container">
-                            <h4><b><b>Id: </b><?php echo $id_cachorro ?></b></h4> 
-                            <h4><b><b>Nome: </b><?php echo $nome ?></b></h4> 
-                            <h4><b><b>Porte: </b><?php echo $porte ?></b></h4> 
-                            <h4><b><b>Ano Nascimento: </b><?php echo $Ano_Nascimento ?></b></h4> 
-                            <h4><b><b>Raça: </b><?php echo $raca ?></b></h4>
-                            <img class="fotoConvertida" src="data:image/png;base64,<?php echo $foto ?>">
+                            <div class="sub-container" style="display:flex;">
+                                <div class="fields">
+                                    <h4><b><b>Id: </b><?php echo $id_cachorro ?></b></h4> 
+                                    <h4><b><b>Nome: </b><?php echo $nome ?></b></h4> 
+                                    <h4><b><b>Porte: </b><?php echo $porte ?></b></h4> 
+                                    <h4><b><b>Ano Nascimento: </b><?php echo $Ano_Nascimento ?></b></h4> 
+                                    <h4><b><b>Raça: </b><?php echo $raca ?></b></h4>
+                                </div>
+                                <img class="fotoConvertida" style="width:15vw;height:auto;" src="data:image/png;base64,<?php echo $foto ?>">
+                            </div>
                             <a href='reservaCachorro.php?id=<?php echo $id_cachorro ?>'>
                                 <button class="botao-reserva">Reservar</button>
                             </a>
