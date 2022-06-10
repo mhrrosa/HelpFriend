@@ -62,10 +62,10 @@
                         // Convertendo para base 64
                         $image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
                         // Inserindo 
-                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto, Imagem) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'off', '$apto', '$image_base64')";
+                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto, Imagem) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', '', '$apto', '$image_base64')";
                         } 
                     } else {
-                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'off', '$apto')";
+                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', '', '$apto')";
                     }
 
                     // Cria conexão
@@ -85,6 +85,7 @@
                     // Faz Select na Base de Dados
                     echo "<div class='w3-responsive w3-card-4'>";
                     if ($result = mysqli_query($conn, $sql)) {
+                        echo $name;
                         echo "Um registro adicionado!";
                     } else {
                         echo "Erro executando INSERT: " . mysqli_error($conn);
