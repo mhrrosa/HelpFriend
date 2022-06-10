@@ -157,7 +157,7 @@
                         }
                     </script>
                     <label for="submit"> 
-                            <button class="cadastrar" type="submit"><b>Cadastrar</b></button>
+                            <button class="botao-cadastro" type="submit"><b>Cadastrar</b></button>
                     </label>
                 </div>
             </form>

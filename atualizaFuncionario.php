@@ -102,7 +102,7 @@
                             </label>
 
                             <label for="submit"> 
-                                <button type="submit" style="max-width: 100px"><b>Atualizar</b></button>
+                                <button class="botao-atualiza" type="submit"><b>Atualizar</b></button>
                             </label>
 
                         </div>
