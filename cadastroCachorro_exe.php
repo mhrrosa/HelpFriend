@@ -61,7 +61,6 @@
                     if(move_uploaded_file($_FILES['Imagem']['tmp_name'],$target_dir.$name)){
                         // Convertendo para base 64
                         $image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
-                        $imagem = 'data:image/'.$imageFileType.';base64,'.$image_base64;
                         // Inserindo 
                         $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto, Imagem) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', 'off', '$apto', '$image_base64')";
                         } 

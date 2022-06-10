@@ -56,7 +56,7 @@
 
                 // Faz Select na Base de Dados
 
-                $sql = "SELECT c.Id, c.Nome, r.Nome as Raca, c.Id_Raca as id_raca, c.Ano_nascimento, c.Porte, c.Imagem FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Id = $id";
+                $sql = "SELECT c.Id, c.Nome, r.Nome as Raca, c.Id_Raca as id_raca, c.Ano_nascimento, c.Porte, c.Imagem, c.apto, c.adotado FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Id = $id";
 
         
 
@@ -70,6 +70,8 @@
                         $raca  = $row['Raca'];
                         $foto = $row['Imagem'];
                         $id_raca = $row['id_raca'];
+                        $apto = $row['apto'];
+                        $adotado = $row['adotado'];
 
                     }
                 }
@@ -146,7 +148,7 @@
                             <br>
                             <b>Não</b>
                             <label class="switch"> 
-                                <input name = "apto" type="checkbox">
+                                <input id= "apto" name = "apto" type="checkbox" <?php echo $apto ?>>
                                 <span class="slider round"></span>
                             </label>
                             <b>Sim</b>
@@ -155,11 +157,28 @@
                             <br>
                             <b>Não</b>
                             <label class="switch"> 
-                                <input name = "adotado" type="checkbox">
+                                <input id= "adotado" name = "adotado" type="checkbox">
                                 <span class="slider round"></span>
                             </label>
-                            <b>sim</b>
+                            <b>Sim</b>
                         </div>
+
+                        <script>
+                            var aptidao = document.getElementById("apto");
+                            var adocao = document.getElementById("adotado");
+
+                            if ($apto=="on") {
+                                aptidao.checked = true;
+                            } else {
+                                aptidao.checked = false;
+                            }
+
+                            if ($adotado=="on") {
+                                adocao.checked = true;
+                            } else {
+                                adocao.checked = false;
+                            }
+                        </script>
                         <p>
                             <label class="w3-text-deep-brown"><b>Imagem:</b></label>
                             <label class="w3-btn w3-theme"><b>Selecione uma imagem</b>

@@ -61,7 +61,7 @@
                     mysqli_query($conn,'SET character_set_results=utf8');
 
                     // Faz Select na Base de Dados
-                    $sql = "SELECT c.id as Id, c.Nome as Nome, r.Nome as Raca, c.Ano_nascimento as Ano_nascimento, c.Porte as Porte, c.Imagem as Imagem FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Apto = 'on' and Adotado = 'off'";
+                    $sql = "SELECT c.id as Id, c.Nome as Nome, r.Nome as Raca, c.Ano_nascimento as Ano_nascimento, c.Porte as Porte, c.Imagem as Imagem FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Apto = 'on' and Adotado = ''";
 
                     $result = mysqli_query($conn, $sql);
                     if (mysqli_num_rows($result) > 0) {
