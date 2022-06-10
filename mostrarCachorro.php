@@ -40,7 +40,7 @@
         <div class="w3-container">
 
             <div class="w3-panel w3-padding-large w3-card-4 w3-light-dark">
-                <h1 class="w3-xxlarge"style="margin-left:40%">Cachorros</h1>
+                <h1 class="w3-xxlarge"style="text-align: center">Cachorros</h1>
 
                 <p class="w3-large"></p>
 

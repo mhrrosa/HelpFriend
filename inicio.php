@@ -40,7 +40,7 @@
         <div class="w3-main w3-container">
 
             <div class="w3-panel w3-padding-large w3-card-4 w3-light-dark">
-                <h1 class="w3-xxlarge"style="text-align: center">Seu novo melhor amigo está aqui</h1>
+                <h2 class="w3-xxlarge"style="text-align: center">Seu novo melhor amigo está aqui</h2>
 
                 <p class="w3-large">
                 <div class="w3-code">  

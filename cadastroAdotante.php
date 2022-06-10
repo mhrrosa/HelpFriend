@@ -45,7 +45,7 @@
                 <div class="formcadastro">
                     <form id="cadastro" action="cadastroAdotante_exe.php" method="post" onsubmit="return check(this.form)">
                         <div class="form">
-                            <label class="titulo-form" for="text"><b>CADASTRO ADOTANTE</b></label>
+                            <label class="titulo-form" for="text"><b>CADASTRO DE ADOTANTE</b></label>
                             <label for="name"> Nome 
                                 <input type="text" name="nome" required>
                             </label>
@@ -86,7 +86,7 @@
                             </label>
 
                             <label for="submit"> 
-                                <button class="cadastrar" type="submit"><b>Cadastrar</b></button>
+                                <button class="botao-cadastro" type="submit"><b>Cadastrar</b></button>
                             </label>
                         </div>
                     </form>
