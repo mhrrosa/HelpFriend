@@ -113,12 +113,11 @@ label {
 h1 {
     color: black;
 }
-
 .switch {
+    position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
-    padding-left: 10px;
   }
   
   .switch input { 
@@ -128,6 +127,7 @@ h1 {
   }
   
   .slider {
+    position: absolute;
     cursor: pointer;
     top: 0;
     left: 0;
@@ -136,11 +136,10 @@ h1 {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-    align-items: center;
   }
   
   .slider:before {
-    position: relative;
+    position: absolute;
     content: "";
     height: 26px;
     width: 26px;
@@ -152,11 +151,11 @@ h1 {
   }
   
   input:checked + .slider {
-    background-color: #c59253;
+    background-color: #2196F3;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #c59253;
+    box-shadow: 0 0 1px #2196F3;
   }
   
   input:checked + .slider:before {
@@ -165,7 +164,7 @@ h1 {
     transform: translateX(26px);
   }
   
-  
+  /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
   }
