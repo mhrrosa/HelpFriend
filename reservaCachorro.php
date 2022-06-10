@@ -97,8 +97,10 @@
                 ?>
                 </div>
                 <div>
-                    <label for="submit"> Não possui cadastro?
-                        <button type="submit" style="max-width: 100px"><b>Cadastrar</b></button>
+                    <label> Não possui cadastro?
+                        <a href="cadastroAdotante.php" for="submit">
+                            <button type="submit" style="max-width: 100px"><b>Cadastrar</b></button>
+                        </a>
                     </label>
                 </div>
             </div>
