@@ -161,30 +161,30 @@
                             <b>sim</b>
                         </div>
                         <p>
-                        <label class="w3-text-deep-brown"><b>Imagem:</b></label>
-                        <label class="w3-btn w3-theme"><b>Selecione uma imagem</b>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
-                        <input type="file" style="display:none;background-color:brown;" id="Imagem" name="Imagem" accept="imagem/*" onchange="previewImagem();"></label>
-                    </p>
-                    <img id="imgCamp" src="data:image/png;base64,<?php echo $foto ?>" style="width:20vw;height:20vw;">
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                            <label class="w3-text-deep-brown"><b>Imagem:</b></label>
+                            <label class="w3-btn w3-theme"><b>Selecione uma imagem</b>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
+                            <input type="file" style="display:none;background-color:brown;" id="Imagem" name="Imagem" accept="imagem/*" onchange="previewImagem();"></label>
+                        </p>
+                        <img id="imgCamp" src="data:image/png;base64,<?php echo $foto ?>" style="width:20vw;height:20vw;">
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-                    <script>
-                        function previewImagem(){
-                            var imagem = document.querySelector('input[name=Imagem]').files[0];
-                            var preview = document.getElementById('imgCamp');
+                        <script>
+                            function previewImagem(){
+                                var imagem = document.querySelector('input[name=Imagem]').files[0];
+                                var preview = document.getElementById('imgCamp');
 
-                            var reader = new FileReader();
-                            reader.onload = function(e){
-                                preview.src = e.target.result;
+                                var reader = new FileReader();
+                                reader.onload = function(e){
+                                    preview.src = e.target.result;
+                                }
+                                if(imagem){
+                                    reader.readAsDataURL(imagem);
+                                }else{
+                                    preview.src = "";
+                                }
                             }
-                            if(imagem){
-                                reader.readAsDataURL(imagem);
-                            }else{
-                                preview.src = "";
-                            }
-                        }
-                    </script>
+                        </script>
                         <label for="submit"> 
                                 <button type="submit" style="max-width: 100px"><b>Atualizar</b></button>
                         </label>

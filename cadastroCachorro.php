@@ -125,7 +125,7 @@
                         <b>Apto</b>
                         <br>
                         <b>Não</b>
-                        <label class="switch"> 
+                        <label class="switch">
                             <input name = "apto" type="checkbox">
                             <span class="slider round"></span>
                         </label>
@@ -134,7 +134,7 @@
                     <p>
                         <label class="w3-text-deep-brown"><b>Imagem:</b></label>
                         <label class="w3-btn w3-theme"><b>Selecione uma imagem</b>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
+                        <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
                         <input type="file" style="display:none;background-color:brown;" id="Imagem" name="Imagem" accept="imagem/*" onchange="previewImagem();"></label>
                     </p>
                     <img id="imgCamp" style="width:20vw;height:auto;">

@@ -57,14 +57,15 @@
                                 mysqli_query($conn, 'SET character_set_results=utf8');
 
                                 $sql = "SELECT Id FROM adotante WHERE Nome = '$nome' AND Senha = '$senha'";
+
                                 // Faz o Upadate na Base de Dados
                                 $result = mysqli_query($conn, $sql);
                                 if (mysqli_num_rows($result) > 0) {
-                                    $reservar = "INSERT into reserva(id_adotante, id_cachorro, status) values ('$id','$id_cachorro','Reservado')";
+                                    $reservar = "INSERT into reserva(id_adotante, id_cachorro, status) values ('$id_adotante','$id_cachorro','Reservado')";
+                                    $confirmaReserva = "UPDATE cachorro SET Apto = 'off' WHERE Id = '$id_cahcorro'";
                                     echo "Cachorro Reservado";
                                 } else if (mysqli_num_rows($result) == 0){
                                     echo "O cadastro não existe no banco";
-
                                 } else {
                                     echo "Erro executando a atualização: " . mysqli_error($conn);
                                 }
