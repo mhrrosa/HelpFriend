@@ -148,7 +148,7 @@
                             <br>
                             <b>Não</b>
                             <label class="switch"> 
-                                <input id= "apto" name = "apto" type="checkbox" <?php echo $apto ?>>
+                                <input id= "apto" name = "apto" type="checkbox">
                                 <span class="slider round"></span>
                             </label>
                             <b>Sim</b>
@@ -164,16 +164,17 @@
                         </div>
 
                         <script>
+                            var aptoPHP = '<?=$apto?>';
+                            var adotadoPHP = '<?=$adotado?>';
                             var aptidao = document.getElementById("apto");
                             var adocao = document.getElementById("adotado");
-
-                            if ($apto=="on") {
+                            if (aptoPHP=="on") {
                                 aptidao.checked = true;
                             } else {
                                 aptidao.checked = false;
                             }
 
-                            if ($adotado=="on") {
+                            if (adotadoPHP=="on") {
                                 adocao.checked = true;
                             } else {
                                 adocao.checked = false;
