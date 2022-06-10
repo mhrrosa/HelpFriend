@@ -97,19 +97,6 @@ label {
     color: rgb(182, 182, 182);
 }
 
-.cadastrar {
-    color: rgb(197, 146, 83);
-    border: solid 1.5px black;
-    border-radius: 5px;
-    width: 100px;
-    background-color: white;
-    font-weight: bold;
-}
-
-.cadastrar :hover {
-    cursor: pointer;
-}
-
 h1 {
     color: black;
 }
