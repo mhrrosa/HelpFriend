@@ -83,7 +83,7 @@
                             <label for="submit"> 
                                 <button class="botao-confirma" type="submit" style="max-width: 125px"><b>Confirmar</b></button>
                             </label>
-                            <label class="label2" > Não possui cadastro?
+                            <label class="label2" > Não possui uma conta?
                                 <a class="a-cadastro" href="cadastroAdotante.php" for="submit">Crie uma!</a>
                             </label>
                         </div>
