@@ -60,11 +60,6 @@ body {
     height: 10px;
 }
 
-.w3-theme {
-    color: rgb(197, 146, 83) !important;
-    background-color: #380077 !important
-}
-
 .w3-code {
     margin-left: 6.5vw;
     border-left: 10px solid rgb(197, 146, 83);
@@ -90,6 +85,10 @@ body {
 
 .sub-container {
     display: flex;
+}
+
+.fotoConvertida {
+    width: 100px;
 }
 
 .botao-reserva {

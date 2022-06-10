@@ -60,7 +60,7 @@
                                 // Faz o Upadate na Base de Dados
                                 $result = mysqli_query($conn, $sql);
                                 if (mysqli_num_rows($result) > 0) {
-                                    $update = "INSERT into reserva(id_adotante, id_cachorro, status) values ('$id','$id_cachorro','Reservado')"
+                                    $reservar = "INSERT into reserva(id_adotante, id_cachorro, status) values ('$id','$id_cachorro','Reservado')";
                                     echo "Cachorro Reservado";
                                 } else if (mysqli_num_rows($result) == 0){
                                     echo "O cadastro não existe no banco";

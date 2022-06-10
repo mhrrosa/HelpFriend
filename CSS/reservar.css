@@ -93,6 +93,25 @@ label {
     padding: 0.5em 0.5em 0.5em 0.5em;
 }
 
+.botao-confirma {
+    -webkit-border-radius: 9;
+    -moz-border-radius: 9;
+    border-radius: 9px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 13px;
+    background: #c59253;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+  }
+  
+.botao-confirma:hover {
+    cursor: pointer;
+    background: #99652b;
+    text-decoration: none;
+}
+
 /* rodapé */
 footer {
     background-color: white;

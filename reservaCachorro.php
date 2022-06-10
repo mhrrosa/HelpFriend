@@ -71,8 +71,8 @@
                 <!-- FORMULÁRIO -->
                 <div class="formconfirma">
                     <form id="cadastro" action="reservaCachorro_exe.php" method="post" onsubmit="return check(this.form)" enctype="multipart/form-data">
-                    <input type="hidden" id="Id" name="Id" value="<?php echo $id; ?>">  
-                    <div class="form">
+                        <input type="hidden" id="Id" name="Id" value="<?php echo $id; ?>">  
+                        <div class="form">
                             <label for="text" class="titulo-form" ><b>CONFIRMAÇÃO DE LOGIN</b></label>
                             <label for="name"> Nome 
                                 <input type="text" name="nome" value="<?php echo $nome; ?>">
@@ -81,7 +81,7 @@
                                 <input type="password" name="senha" value="<?php echo $senha; ?>">
                             </label>
                             <label for="submit"> 
-                                <button type="submit" style="max-width: 100px"><b>Confirmar</b></button>
+                                <button class="botao-confirma" type="submit" style="max-width: 100px"><b>Confirmar</b></button>
                             </label>
                         </div>
                     </form>
@@ -95,7 +95,14 @@
                     //ENCERRA CONEXÃO COM O BANCO DE DADOS
                     mysqli_close($conn); //Encerra conexao com o BD
                 ?>
-
+                </div>
+                <div>
+                    <label> Não possui cadastro?
+                        <a href="cadastroAdotante.php" for="submit">
+                            <button type="submit" style="max-width: 100px"><b>Cadastrar</b></button>
+                        </a>
+                    </label>
+                </div>
             </div>
         </div>
         <!-- RODAPÉ -->
