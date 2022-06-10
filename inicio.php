@@ -84,7 +84,7 @@
                                     <h4><b><b>Ano Nascimento: </b><?php echo $Ano_Nascimento ?></b></h4> 
                                     <h4><b><b>Raça: </b><?php echo $raca ?></b></h4>
                                 </div>
-                                <img class="fotoConvertida" style="width:15vw;height:auto;" src="data:image/png;base64,<?php echo $foto ?>">
+                                <img class="fotoConvertida" src="data:image/png;base64,<?php echo $foto ?>">
                             </div>
                             <a href='reservaCachorro.php?id=<?php echo $id_cachorro ?>'>
                                 <button class="botao-reserva">Reservar</button>
