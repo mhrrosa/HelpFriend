@@ -134,7 +134,7 @@
                         <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
                         <input type="file" style="display:none;background-color:brown;" id="Imagem" name="Imagem" accept="imagem/*" onchange="previewImagem();"></label>
                     </p>
-                    <img id="imgCamp" style="width:20vw;height:20vw;">
+                    <img id="imgCamp" style="width:20vw;height:auto;">
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
                     <script>
