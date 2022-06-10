@@ -115,10 +115,10 @@ h1 {
 }
 
 .switch {
-    position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
+    padding-left: 10px;
   }
   
   .switch input { 
@@ -128,7 +128,6 @@ h1 {
   }
   
   .slider {
-    position: absolute;
     cursor: pointer;
     top: 0;
     left: 0;
@@ -137,10 +136,11 @@ h1 {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+    align-items: center;
   }
   
   .slider:before {
-    position: absolute;
+    position: relative;
     content: "";
     height: 26px;
     width: 26px;
