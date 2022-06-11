@@ -39,7 +39,7 @@
                         <div class="w3-code cssHigh notranslate">
                             <?php require 'conectaBD.php'; ?>
                             <?php
-                                $id =  $_POST['id'];
+                                $id_cachorro =  $_POST['id_cachorro'];
                                 $nome = $_POST['nome'];
                                 $senha = $_POST['senha'];
 
@@ -63,7 +63,7 @@
                                         $id_adotante = $row['Id'];
                                  
                                 $reservar = "INSERT into reserva(id_adotante, id_cachorro, status) values ('$id_adotante','$id_cachorro','Reservado')";
-                                $confirmaReserva = "UPDATE cachorro SET Apto = '' WHERE Id = '$id_cahcorro'";
+                                $confirmaReserva = "UPDATE cachorro SET Apto = '' WHERE Id = '$id_cachorro'";
                                     }
                                 }
                                 // Faz o Upadate na Base de Dados
