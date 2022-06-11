@@ -39,7 +39,7 @@
                         <div class="w3-code cssHigh notranslate">
                             <?php require 'conectaBD.php'; ?>
                             <?php
-                                $id =  $_POST['Id'];
+                                $id =  $_POST['id'];
                                 $nome = $_POST['nome'];
                                 $senha = $_POST['senha'];
 

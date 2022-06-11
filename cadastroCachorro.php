@@ -38,7 +38,7 @@
         <header class="linha-divisao"></header>
         <!-- FORMULÁRIO -->
         <div class="formcadastro">
-            <form id="cadastro" action="cadastroCachorro_exe.php" enctype="multipart/form-data" method="post">
+            <form id="cadastro" action="cadastroCachorro_exe.php, reservaCachorro_exe.php" enctype="multipart/form-data" method="post">
                 <div class="form">
                     <label class="titulo-form" for="text"><b>CADASTRO DE CACHORRO</b></label>
                     <label for="name"> Nome 

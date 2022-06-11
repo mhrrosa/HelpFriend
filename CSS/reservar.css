@@ -85,12 +85,16 @@ body {
     color: black;
 }
 
-label {
+.label {
     text-align: center;
     color: rgb(197, 146, 83);
     flex-direction: column;
     display: flex;
     padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.invisivel {
+    display: none;
 }
 
 .botao-confirma {
@@ -114,7 +118,7 @@ label {
     text-decoration: none;
 }
 
-label.label2 {
+.label2 {
     display: flex;
     margin-top: 10px;
     text-align: center;

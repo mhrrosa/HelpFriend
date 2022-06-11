@@ -39,7 +39,8 @@
         <div>
             <div>
                 <!-- ACESSO AO BANCO DE DADOS-->
-                <?php		
+                <?php
+                    //Pega o id do cachorro que foi selecionado para reservar		
                     $id=$_GET['id'];
 
                     // Cria conexão
@@ -57,7 +58,7 @@
 
                     // Faz Select na Base de Dados
 
-                    $sql = "SELECT Id, email, Nome, Senha from adotante where Id = $id";
+                    $sql = "SELECT Id, email, Nome, Senha from adotante where Id = '$id'";
 
                     if ($result = mysqli_query($conn, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
@@ -74,13 +75,17 @@
                         <input type="hidden" id="Id" name="Id" value="<?php echo $id; ?>">  
                         <div class="form">
                             <label for="text" class="titulo-form" ><b>CONFIRMAÇÃO DE LOGIN</b></label>
-                            <label for="name"> Nome 
+                            <!-- ARRUMAR ESTÁ LABEL -->
+                            <label class="invisivel">
+                                <input type="text" name="id_cachorro" value="<?php echo $id; ?>">
+                            </label>
+                            <label class="label" for="name"> Nome 
                                 <input type="text" name="nome" value="<?php echo $nome; ?>">
                             </label>
-                            <label for="password"> Senha 
+                            <label class="label" for="password"> Senha 
                                 <input type="password" name="senha" value="<?php echo $senha; ?>">
                             </label>
-                            <label for="submit"> 
+                            <label class="label" for="submit"> 
                                 <button class="botao-confirma" type="submit" style="max-width: 125px"><b>Confirmar</b></button>
                             </label>
                             <label class="label2" > Não possui uma conta?
