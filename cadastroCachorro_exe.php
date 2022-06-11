@@ -27,6 +27,11 @@
                             <h3>CONTATO</h3>
                         </a>
                     </li>
+                    <li>
+                    <a href="mostrarCachorro.php">
+                        <h3>MOSTRAR CACHORROS</h3>
+                    </a>
+                </li>
                 </ul>
             </div>
         </header>
