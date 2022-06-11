@@ -27,6 +27,11 @@
                         <h3>CONTATO</h3>
                     </a>
                 </li>
+                <li>
+                    <a href="cadastroFuncionario.php">
+                        <h3>CADASTRAR FUNCIONARIO</h3>
+                    </a>
+                </li>
             </ul>
         </div>
     </header>

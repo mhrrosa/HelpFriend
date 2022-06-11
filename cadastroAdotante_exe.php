@@ -13,7 +13,7 @@
         <div class="botao-cabecalho">
             <ul>
                 <li>
-                    <a href="">
+                    <a href="inicio.php">
                         <h3>MENU</h3>
                     </a>
                 </li>

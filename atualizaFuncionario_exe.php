@@ -26,6 +26,11 @@
                             <h3>CONTATO</h3>
                         </a>
                     </li>
+                    <li>
+						<a href="mostrarFuncionario.php" >
+							<h3>MOSTRAR FUNCIONARIO</h3>
+						</a>
+					</li>
                 </ul>
             </div>
     </header>
