@@ -74,13 +74,14 @@ INSERT INTO `cachorro` (`Id`, `Nome`, `Id_Raca`, `Ano_Nascimento`, `Porte`, `Ado
 --
 
 CREATE TABLE `endereco` (
-  `Id` int(11) NOT NULL,
+  `Id` int(11) auto_increment NOT NULL,
   `Bairro` varchar(100) NOT NULL,
   `Cidade` varchar(100) NOT NULL,
   `Estado` varchar(100) NOT NULL,
   `Logradouro` varchar(100) NOT NULL,
   `Numero` int(11) NOT NULL,
-  `Complemento` varchar(100) NOT NULL
+  `Complemento` varchar(100) NOT null,
+  CONSTRAINT endereco_pk PRIMARY KEY (Id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -194,12 +195,6 @@ ALTER TABLE `cachorro`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `cachorro_FK` (`Id_Instituicao`),
   ADD KEY `raca_fk` (`Id_Raca`);
-
---
--- Indexes for table `endereco`
---
-ALTER TABLE `endereco`
-  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `funcionario`
