@@ -54,9 +54,11 @@
 					$cpf = $_POST['cpf'];
 					$cargo = $_POST['cargo'];
 					$id_instituicao = $_POST['id'];
+					$idade = $_POST['idade'];
+					$salario = $_POST['salario'];
 
 
-					$sql = "INSERT INTO funcionario(Nome, email, Senha,Id_Instituicao,cargo,cpf) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf')";
+					$sql = "INSERT INTO funcionario(Nome, email, Senha,Id_Instituicao,cargo,cpf,idade,salario) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf','$idade','$salario')";
 
 					// Cria conexão
 					$conn = mysqli_connect($servername, $username, $password, $database);
