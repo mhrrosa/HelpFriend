@@ -54,6 +54,8 @@
 					$cpf = $_POST['cpf'];
 					$cargo = $_POST['cargo'];
 					$id_instituicao = $_POST['id'];
+					$idade = $_POST['idade'];
+					$salario = $_POST['salario'];
 
 					$name = $_FILES['Imagem']['name'];
                     $target_dir = "IMG/";
@@ -68,13 +70,12 @@
 							// Convertendo para base 64
 							$image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
 							// Inserindo 
-							$sql = "INSERT INTO funcionario(Nome, Apelido, email, Senha,Id_Instituicao,cargo,cpf,Imagem) VALUES ('$nome', '$apelido', '$email', '$senha','$id_instituicao','$cargo','$cpf', '$image_base64')";
+							$sql = "INSERT INTO funcionario(Nome, email, Senha,Id_Instituicao,cargo,cpf,idade,salario,Imagem) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf','$idade','$salario', '$image_base64')";
 
 							} 
 						} else {
-							$sql = "INSERT INTO funcionario(Nome, Apelido, email, Senha,Id_Instituicao,cargo,cpf) VALUES ('$nome', '$apelido', '$email', '$senha','$id_instituicao','$cargo','$cpf')";
+							$sql = "INSERT INTO funcionario(Nome, email, Senha,Id_Instituicao,cargo,cpf,idade,salario) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf','$idade','$salario')";
 						}
-
 
 					// Cria conexão
 					$conn = mysqli_connect($servername, $username, $password, $database);

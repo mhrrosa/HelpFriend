@@ -58,6 +58,14 @@
                     <label for="number"> CPF
                         <input type="text" name="cpf"required>
                     </label>
+                    
+                    <label for="name"> Idade 
+                        <input type="text" name="idade"required>
+                    </label>
+
+                    <label for="name"> Salario 
+                        <input type="text" name="salario"required>
+                    </label>
 
                     <label for="name"> Cargo 
                         <input type="text" name="cargo"required>
