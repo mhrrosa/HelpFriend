@@ -62,7 +62,7 @@
                     $target_file = $target_dir . basename($_FILES["Imagem"]["name"]);
                     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                     $extensions_arr = array("jpg","jpeg","png","gif");
-
+					
 					if( in_array($imageFileType,$extensions_arr) ){
 
 						// Upload do arquivo
@@ -97,6 +97,7 @@
 					echo "<div class='w3-responsive w3-card-4'>";
 					if ($result = mysqli_query($conn, $sql)) {
 						echo "Um registro adicionado!";
+						echo "Imagem " . $_FILES['Imagem']['name'];;
 					} else {
 						echo "Erro executando INSERT: " . mysqli_error($conn);
 					}

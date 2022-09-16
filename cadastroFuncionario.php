@@ -44,9 +44,6 @@
                     <label for="name"> Nome 
                         <input type="text" name="nome" required>
                     </label>
-                    <label for="apelido"> Apelido 
-                        <input type="text" name="apelido" required>
-                    </label>
                     <label for="email"> Email 
                         <input type="email" name="email"required>
                     </label>
@@ -95,7 +92,6 @@
                             }
                         }
                     </script>
-
                     <label for="name"> ID Instituição 
                         <input type="text" name="id"required>
                     </label>
