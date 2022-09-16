@@ -55,8 +55,26 @@
 					$cargo = $_POST['cargo'];
 					$id_instituicao = $_POST['id'];
 
+					$name = $_FILES['Imagem']['name'];
+                    $target_dir = "IMG/";
+                    $target_file = $target_dir . basename($_FILES["Imagem"]["name"]);
+                    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                    $extensions_arr = array("jpg","jpeg","png","gif");
 
-					$sql = "INSERT INTO funcionario(Nome, email, Senha,Id_Instituicao,cargo,cpf) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf')";
+					if( in_array($imageFileType,$extensions_arr) ){
+
+						// Upload do arquivo
+						if(move_uploaded_file($_FILES['Imagem']['tmp_name'],$target_dir.$name)){
+							// Convertendo para base 64
+							$image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
+							// Inserindo 
+							$sql = "INSERT INTO funcionario(Nome, Apelido, email, Senha,Id_Instituicao,cargo,cpf,Imagem) VALUES ('$nome', '$apelido', '$email', '$senha','$id_instituicao','$cargo','$cpf', '$image_base64')";
+
+							} 
+						} else {
+							$sql = "INSERT INTO funcionario(Nome, Apelido, email, Senha,Id_Instituicao,cargo,cpf) VALUES ('$nome', '$apelido', '$email', '$senha','$id_instituicao','$cargo','$cpf')";
+						}
+
 
 					// Cria conexão
 					$conn = mysqli_connect($servername, $username, $password, $database);

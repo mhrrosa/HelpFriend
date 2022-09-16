@@ -44,6 +44,9 @@
                     <label for="name"> Nome 
                         <input type="text" name="nome" required>
                     </label>
+                    <label for="apelido"> Apelido 
+                        <input type="text" name="apelido" required>
+                    </label>
                     <label for="email"> Email 
                         <input type="email" name="email"required>
                     </label>
@@ -59,6 +62,31 @@
                     <label for="name"> Cargo 
                         <input type="text" name="cargo"required>
                     </label>
+                    <p>
+                        <label class="w3-text-deep-brown"><b>Imagem:</b></label>
+                        <label class="w3-btn w3-theme"><b>Selecione uma imagem</b>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+                        <input type="file" style="display:none;background-color:brown;" id="Imagem" name="Imagem" accept="imagem/*" onchange="previewImagem();"></label>
+                    </p>
+                    <img id="imgCamp" style="width:20vw;height:auto;">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+                    <script>
+                        function previewImagem(){
+                            var imagem = document.querySelector('input[name=Imagem]').files[0];
+                            var preview = document.getElementById('imgCamp');
+
+                            var reader = new FileReader();
+                            reader.onload = function(e){
+                                preview.src = e.target.result;
+                            }
+                            if(imagem){
+                                reader.readAsDataURL(imagem);
+                            }else{
+                                preview.src = "";
+                            }
+                        }
+                    </script>
 
                     <label for="name"> ID Instituição 
                         <input type="text" name="id"required>
