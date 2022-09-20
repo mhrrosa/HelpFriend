@@ -44,6 +44,9 @@
                     <label for="name"> Nome 
                         <input type="text" name="nome" required>
                     </label>
+                    <label for="name"> Apelido 
+                        <input type="text" name="apelido" required>
+                    </label>
                     <label for="name"> Ano de Nascimento
                         <select name="ano" required>
                             <option class="indicacao-option" value="">Selecione o ano de nascimento:</option>

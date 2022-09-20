@@ -48,6 +48,7 @@
 
                 <?php
                     $nome    = $_POST['nome'];
+                    $apelido = $_POST['apelido'];
                     $ano = $_POST['ano'];
                     $porte = $_POST['porte'];
                     $raca = $_POST['raca'];
@@ -67,10 +68,10 @@
                         // Convertendo para base 64
                         $image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
                         // Inserindo 
-                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto, Imagem) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', '', '$apto', '$image_base64')";
+                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto, apelido, Imagem) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', '', '$apto', '$apelido', '$image_base64')";
                         } 
                     } else {
-                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, Apto) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', '', '$apto')";
+                        $sql = "INSERT INTO cachorro(Nome, Ano_Nascimento, Porte, Id_Raca, Id_Instituicao, Adotado, apelido, Apto) VALUES ('$nome','$ano', '$porte','$raca','$id_instituicao', '','$apelido', '$apto')";
                     }
 
                     // Cria conexão

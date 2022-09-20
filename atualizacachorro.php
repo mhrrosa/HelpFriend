@@ -56,7 +56,7 @@
 
                 // Faz Select na Base de Dados
 
-                $sql = "SELECT c.Id, c.Nome, r.Nome as Raca, c.Id_Raca as id_raca, c.Ano_nascimento, c.Porte, c.Imagem, c.apto, c.adotado FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Id = $id";
+                $sql = "SELECT c.Id, c.Nome, r.Nome as Raca, c.apelido, c.Id_Raca as id_raca, c.Ano_nascimento, c.Porte, c.Imagem, c.apto, c.adotado FROM cachorro c, raca r where c.Id_Raca = r.Id and c.Id = $id";
 
         
 
@@ -65,6 +65,7 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         $id_cachorro = $row['Id'];
                         $nome      = $row['Nome'];
+                        $apelido      = $row['apelido'];
                         $porte      = $row['Porte'];
                         $Ano_Nascimento  = $row['Ano_nascimento'];
                         $raca  = $row['Raca'];
@@ -84,6 +85,9 @@
                         <label for="text" style="color: black;"><b>ATUALIZAÇÃO DE CACHORRO</b></label>
                         <label for="name"> Nome 
                             <input type="text" name="nome" value="<?php echo $nome; ?>">
+                        </label>
+                        <label for="name"> Apelido 
+                            <input type="text" name="apelido" value="<?php echo $apelido; ?>">
                         </label>
                         <label for="name"> Ano de Nascimento
                             <select name="ano">

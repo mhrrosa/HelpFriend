@@ -57,25 +57,7 @@
 					$idade = $_POST['idade'];
 					$salario = $_POST['salario'];
 
-					$name = $_FILES['Imagem']['name'];
-                    $target_dir = "IMG/";
-                    $target_file = $target_dir . basename($_FILES["Imagem"]["name"]);
-                    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-                    $extensions_arr = array("jpg","jpeg","png","gif");
-					
-					if( in_array($imageFileType,$extensions_arr) ){
-
-						// Upload do arquivo
-						if(move_uploaded_file($_FILES['Imagem']['tmp_name'],$target_dir.$name)){
-							// Convertendo para base 64
-							$image_base64 = base64_encode(file_get_contents('IMG/'.$name) );
-							// Inserindo 
-							$sql = "INSERT INTO funcionario(Nome, email, Senha,Id_Instituicao,cargo,cpf,idade,salario,Imagem) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf','$idade','$salario', '$image_base64')";
-
-							} 
-						} else {
-							$sql = "INSERT INTO funcionario(Nome, email, Senha,Id_Instituicao,cargo,cpf,idade,salario) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf','$idade','$salario')";
-						}
+					$sql = "INSERT INTO funcionario(Nome, email, Senha,Id_Instituicao,cargo,cpf,idade,salario) VALUES ('$nome','$email', '$senha','$id_instituicao','$cargo','$cpf','$idade','$salario')";
 
 					// Cria conexão
 					$conn = mysqli_connect($servername, $username, $password, $database);
@@ -97,7 +79,6 @@
 					echo "<div class='w3-responsive w3-card-4'>";
 					if ($result = mysqli_query($conn, $sql)) {
 						echo "Um registro adicionado!";
-						echo "Imagem " . $_FILES['Imagem']['name'];
 					} else {
 						echo "Erro executando INSERT: " . mysqli_error($conn);
 					}
