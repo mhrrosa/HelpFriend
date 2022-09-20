@@ -53,6 +53,7 @@
 					$senha = $_POST['senha'];
 					$cpf = $_POST['cpf'];
 					$cargo = $_POST['cargo'];
+					$telefone = $_POST['telefone'];
 					$id_instituicao = $_POST['id'];
 					$idade = $_POST['idade'];
 					$salario = $_POST['salario'];

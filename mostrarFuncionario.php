@@ -79,6 +79,7 @@
                             echo "	  <th>E-mail</th>";
                             echo "	  <th>CPF</th>";
                             echo "	  <th>Cargo</th>";
+                            echo "	  <th>Telefone</th>";
                             echo "	  <th> </th>";
                             echo "	  <th> </th>";
                             echo "	</tr>";
@@ -98,7 +99,9 @@
                                     echo $row["cpf"];
                                     echo "</td><td>";
                                     echo $row["cargo"];
-                                    echo "</td><td>";  
+                                    echo "</td><td>";
+                                    echo $row["telefone"];
+                                    echo "</td><td>";   
                     ?>
                                 <!-- Atualizar e Excluir funcionario -->
                                 <a href='atualizaFuncionario.php?id=<?php echo $row["id"]; ?>'><img src='IMG/editar.png' title='Editar Funcionario' width='32'></a>

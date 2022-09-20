@@ -102,6 +102,7 @@
 											<p>
 											<label class="label_exclusao"><b>Cargo: </b><?php echo $row['cargo']; ?></label></p>
 											<p>
+											<label class="label_exclusao"><b>Telefone: </b><?php echo $row['telefone']; ?></label></p>
 											<input type="submit" value="Excluir" class="w3-btn w3-red" >
 											<input type="button" value="Cancelar" class="w3-btn" onclick="window.location.href='mostrarFuncionario.php'"></p>
 										</form>
