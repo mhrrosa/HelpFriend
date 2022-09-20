@@ -57,7 +57,7 @@
 
                     // Faz Select na Base de Dados
 
-                    $sql = "SELECT Id, Nome, Apelido, Senha, cpf, cargo, Id_Instituicao, email from funcionario where Id = $id";
+                    $sql = "SELECT Id, Nome, Senha, cpf, cargo, Id_Instituicao, email from funcionario where Id = $id";
 
                     if ($result = mysqli_query($conn, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
@@ -69,7 +69,6 @@
                                 $cargo  = $row['cargo'];
                                 $id_instituicao  = $row['Id_Instituicao'];
                                 $id_email = $row['email'];
-                                $apelido = $row['Apelido'];
                         }
                     }
                 ?>
@@ -81,9 +80,6 @@
                             <label for="text" class="titulo-form" ><b>ATUALIZAÇÃO DE FUNCIONÁRIO</b></label>
                             <label for="name"> Nome 
                                 <input type="text" name="nome" value="<?php echo $nome; ?>" required>
-                            </label>
-                            <label for="apelido"> Apelido 
-                                <input type="text" name="apelido" value="<?php echo $apelido; ?>">
                             </label>
                             <label for="email">Email 
                                 <input type="text" name="email" value="<?php echo $id_email; ?>" required>
