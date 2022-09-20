@@ -67,11 +67,11 @@
                     <label for="name"> Cargo 
                         <input type="text" name="cargo"required>
                     </label>
-                   
+                  
                     <label for="name"> ID Instituição 
                         <input type="text" name="id"required>
                     </label>
-   
+
                     <label for="submit"> 
                         <button class="botao-cadastro" type="submit"><b>Cadastrar</b></button>
                     </label>

@@ -52,7 +52,6 @@
                                 $cargo = $_POST['cargo'];
                                 $id_email = $_POST['email'];
                                 $id_instituicao = $_POST['id_instituicao'];
-					            $apelido = $_POST['apelido'];
 
                                 $conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -67,7 +66,7 @@
                                 mysqli_query($conn, 'SET character_set_client=utf8');
                                 mysqli_query($conn, 'SET character_set_results=utf8');
 
-                                $sql = "UPDATE funcionario SET Nome = '$nome', Apelido = '$apelido', Senha = '$senha', cpf = '$cpf', Cargo = '$cargo', email = '$id_email', Id_Instituicao = '$id_instituicao' WHERE Id = $id";
+                                $sql = "UPDATE funcionario SET Nome = '$nome', Senha = '$senha', cpf = '$cpf', Cargo = '$cargo', email = '$id_email', Id_Instituicao = '$id_instituicao' WHERE Id = $id";
 
                                 // Faz o Upadate na Base de Dados
 
