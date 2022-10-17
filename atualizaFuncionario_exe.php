@@ -70,7 +70,7 @@
                                 $sql = "UPDATE funcionario SET Nome = '$nome', Senha = '$senha', cpf = '$cpf', Cargo = '$cargo', email = '$id_email', Id_Instituicao = '$id_instituicao' WHERE Id = $id";
 
                                 // Faz o Upadate na Base de Dados
-
+                                echo "<div id='resultado'>";
                                 if ($result = mysqli_query($conn, $sql)) {
                                     echo "Um registro atualizado!";
                                 } else {

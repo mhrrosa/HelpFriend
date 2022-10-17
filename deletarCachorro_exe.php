@@ -79,7 +79,7 @@
 						// Faz DELETE na Base de Dados
 						$sql = "DELETE FROM cachorro WHERE Id = $id";
 
-						echo "<div>";
+						echo "<div id='resultado'>";
 						if ($result = mysqli_query($conn, $sql)) {
 								echo "Um cachorro excluído!";
 						} else {
