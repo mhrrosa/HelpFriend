@@ -88,7 +88,7 @@
                                 }
                                 
                                 // Faz o Upadate na Base de Dados
-
+                                echo "<div id='resultado'>";
                                 if ($result = mysqli_query($conn, $sql)) {
                                     echo "Um registro atualizado!";
                                 } else {
