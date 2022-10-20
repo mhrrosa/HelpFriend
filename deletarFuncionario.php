@@ -77,7 +77,7 @@
 						$id=$_GET['id'];
 						
 						// Faz Select na Base de Dados
-						$sql = "SELECT Id, Nome, Apelido, Senha, cpf, cargo FROM funcionario WHERE Id = $id";
+						$sql = "SELECT Id, Nome, Senha, cpf, cargo FROM funcionario WHERE Id = $id";
 						echo "<div class='w3-responsive w3-card-4'>"; //Inicio form
 						if ($result = mysqli_query($conn, $sql)) {
 								if (mysqli_num_rows($result) > 0) {
@@ -93,8 +93,6 @@
 											<input type="hidden" id="Id" name="Id" value="<?php echo $row['Id']; ?>">
 											<p>
 											<label class="label_exclusao"><b>Nome: </b> <?php echo $row['Nome']; ?> </label></p>
-											<p>
-											<label class="label_exclusao"><b>Apelido: </b><?php echo $row['Apelido']; ?></label></p>
 											<p>
 											<label class="label_exclusao"><b>Senha: </b><?php echo $row['Senha']; ?></label></p>
 											<p>
